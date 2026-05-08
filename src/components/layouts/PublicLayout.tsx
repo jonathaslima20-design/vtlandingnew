@@ -19,7 +19,7 @@ export default function PublicLayout() {
   }, [location.state]);
 
   // Only hide Footer on auth pages
-  const hideFooter = ['/login', '/register', '/reset-password'].includes(location.pathname);
+  const hideFooter = ['/', '/login', '/register', '/reset-password'].includes(location.pathname);
 
   return (
     <div className="flex min-h-screen flex-col bg-muted/30">

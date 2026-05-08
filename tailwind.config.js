@@ -17,7 +17,19 @@ export default {
         md: 'calc(var(--radius) - 2px)',
         sm: 'calc(var(--radius) - 4px)',
       },
+      fontFamily: {
+        display: ['"Inter Tight"', 'Inter', 'system-ui', 'sans-serif'],
+        mono: ['"Geist Mono"', 'ui-monospace', 'monospace'],
+      },
       colors: {
+        surface: '#F8F9FA',
+        hairline: '#E4E4E7',
+        ink: {
+          900: '#0A0A0A',
+          700: '#27272A',
+          500: '#52525B',
+          400: '#71717A',
+        },
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
         card: {
@@ -60,6 +72,18 @@ export default {
         },
       },
       keyframes: {
+        fadeUp: {
+          from: { opacity: '0', transform: 'translateY(20px)' },
+          to: { opacity: '1', transform: 'translateY(0)' },
+        },
+        scaleIn: {
+          from: { opacity: '0', transform: 'scale(0.96)' },
+          to: { opacity: '1', transform: 'scale(1)' },
+        },
+        growUp: {
+          from: { transform: 'scaleY(0)' },
+          to: { transform: 'scaleY(1)' },
+        },
         'accordion-down': {
           from: {
             height: '0',
@@ -78,6 +102,8 @@ export default {
         },
       },
       animation: {
+        fadeUp: 'fadeUp 0.9s cubic-bezier(0.22,1,0.36,1) both',
+        scaleIn: 'scaleIn 0.7s cubic-bezier(0.22,1,0.36,1) both',
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
       },
