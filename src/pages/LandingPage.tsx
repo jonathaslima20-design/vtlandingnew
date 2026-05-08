@@ -412,11 +412,13 @@ function PricingCard({
 }) {
   const benefits = [
     'Produtos ilimitados',
-    'Vendas ilimitadas',
-    'Integração WhatsApp',
-    'Domínio próprio',
-    'Suporte prioritário',
-    'Sem taxas sobre vendas',
+    'Categorias ilimitadas',
+    'Catálogo Digital via Link',
+    'Painel Administrativo',
+    'Funcionalidade de carrinho de compras',
+    'Configuração de links externos',
+    'Integração com Meta Pixel e Google Tag',
+    'Programa de Indicação ("Indique e Ganhe")',
   ];
   return (
     <div
@@ -462,7 +464,7 @@ function PricingCard({
             : 'btn-primary'
         }`}
       >
-        Criar Agora
+        Assinar Agora
         <ArrowRight size={14} />
       </a>
     </div>
@@ -475,9 +477,9 @@ function PricingSection() {
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         <SectionHeading kicker="/ planos" title="Escolha o plano ideal pra você" />
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 mt-14">
-          <PricingCard tag="Flexível" name="Mensal" price="R$ 57,00" period="/mês" />
-          <PricingCard tag="Mais escolhido" name="Semestral" price="R$ 229,00" period="/6 meses" featured />
-          <PricingCard tag="Melhor valor" name="Anual" price="R$ 336,00" period="/ano" />
+          <PricingCard tag="Flexível" name="Trimestral" price="R$ 149,00" period="pagamento único" />
+          <PricingCard tag="Mais escolhido" name="Semestral" price="R$ 229,00" period="pagamento único" featured />
+          <PricingCard tag="Melhor valor" name="Anual" price="R$ 336,00" period="pagamento único" />
         </div>
       </div>
     </section>
