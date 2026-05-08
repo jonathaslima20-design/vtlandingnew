@@ -101,18 +101,6 @@ function Hero() {
               Ver Planos
             </a>
           </div>
-          <div className="grid grid-cols-3 gap-6 lg:gap-10 mt-14 max-w-2xl">
-            {[
-              { n: '+12k', l: 'vitrines ativas' },
-              { n: '99.9%', l: 'uptime' },
-              { n: '4.9/5', l: 'avaliação' },
-            ].map((s) => (
-              <div key={s.l}>
-                <div className="font-display font-semibold text-2xl lg:text-3xl text-ink-900 tracking-[-0.02em]">{s.n}</div>
-                <div className="font-mono-label uppercase text-[11px] text-ink-400 mt-1">{s.l}</div>
-              </div>
-            ))}
-          </div>
         </div>
         <div className="reveal mt-20">
           <HeroPreview />
