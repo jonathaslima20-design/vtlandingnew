@@ -4,14 +4,18 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 const SLIDES: {
   src: string;
   label: string;
-  inset?: { x: string; y: string };
+  inset?: { x: string; top: string; bottom: string };
 }[] = [
   { src: '/mockup-1%20copy.png', label: 'Vitrine personalizada' },
-  { src: '/mockup-2%20copy.png', label: 'Catálogo de produtos' },
+  {
+    src: '/mockup-2%20copy.png',
+    label: 'Catálogo de produtos',
+    inset: { x: '5%', top: '9%', bottom: '4%' },
+  },
   {
     src: '/mockup-3%20copy.png',
     label: 'Detalhes do produto',
-    inset: { x: '5%', y: '4%' },
+    inset: { x: '5%', top: '9%', bottom: '4%' },
   },
 ];
 
@@ -24,7 +28,7 @@ function PhoneFrame({
   src: string;
   alt: string;
   eager: boolean;
-  inset?: { x: string; y: string };
+  inset?: { x: string; top: string; bottom: string };
 }) {
   return (
     <div
@@ -72,7 +76,7 @@ function PhoneFrame({
               className="absolute inset-0 bg-white"
               style={
                 inset
-                  ? { padding: `${inset.y} ${inset.x}` }
+                  ? { padding: `${inset.top} ${inset.x} ${inset.bottom} ${inset.x}` }
                   : undefined
               }
             >
