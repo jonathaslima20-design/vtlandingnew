@@ -3,6 +3,14 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Plus, Package, MessageCircle, Gift, Instagram, Settings2, Globe as Globe2, ChartBar as BarChart3, Check, Zap, ShoppingBag, TrendingUp, Users, Star, LogIn } from 'lucide-react';
 import LandingSocialProof from '@/components/landing/LandingSocialProof';
 import HeroPhoneCarousel from '@/components/landing/HeroPhoneCarousel';
+import {
+  TshirtIllustration,
+  SneakerIllustration,
+  BallIllustration,
+  RacketIllustration,
+  MouseIllustration,
+  CupcakeIllustration,
+} from '@/components/landing/ProductIllustrations';
 
 function useReveal() {
   useEffect(() => {
@@ -168,52 +176,28 @@ function BentoGrid() {
           >
             <div className="grid grid-cols-3 gap-3">
               {[
-                {
-                  name: 'Camiseta Oversized',
-                  price: 'R$ 149',
-                  img: 'https://images.pexels.com/photos/996329/pexels-photo-996329.jpeg?auto=compress&cs=tinysrgb&w=400',
-                },
-                {
-                  name: 'Tênis Runner',
-                  price: 'R$ 389',
-                  img: 'https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg?auto=compress&cs=tinysrgb&w=400',
-                },
-                {
-                  name: 'Bola Oficial',
-                  price: 'R$ 219',
-                  img: 'https://images.pexels.com/photos/47343/the-ball-stadion-football-the-pitch-47343.jpeg?auto=compress&cs=tinysrgb&w=400',
-                },
-                {
-                  name: 'Raquete Pro',
-                  price: 'R$ 649',
-                  img: 'https://images.pexels.com/photos/1432039/pexels-photo-1432039.jpeg?auto=compress&cs=tinysrgb&w=400',
-                },
-                {
-                  name: 'Mouse Gamer',
-                  price: 'R$ 279',
-                  img: 'https://images.pexels.com/photos/2115257/pexels-photo-2115257.jpeg?auto=compress&cs=tinysrgb&w=400',
-                },
-                {
-                  name: 'Cupcake Artesanal',
-                  price: 'R$ 18',
-                  img: 'https://images.pexels.com/photos/1055270/pexels-photo-1055270.jpeg?auto=compress&cs=tinysrgb&w=400',
-                },
-              ].map((p) => (
+                { name: 'Camiseta Oversized', price: 'R$ 149', tag: 'Novo', Illustration: TshirtIllustration },
+                { name: 'Tênis Runner', price: 'R$ 389', tag: '-20%', Illustration: SneakerIllustration },
+                { name: 'Bola Oficial', price: 'R$ 219', Illustration: BallIllustration },
+                { name: 'Raquete Pro', price: 'R$ 649', Illustration: RacketIllustration },
+                { name: 'Mouse Gamer', price: 'R$ 279', tag: 'Top', Illustration: MouseIllustration },
+                { name: 'Cupcake Artesanal', price: 'R$ 18', Illustration: CupcakeIllustration },
+              ].map(({ name, price, tag, Illustration }) => (
                 <div
-                  key={p.name}
-                  className="group aspect-square rounded-xl border hairline bg-white p-2 flex flex-col justify-between overflow-hidden transition-all duration-300 hover:shadow-md hover:-translate-y-0.5"
+                  key={name}
+                  className="group relative aspect-square rounded-xl border hairline bg-white p-2.5 flex flex-col justify-between overflow-hidden transition-all duration-300 hover:shadow-md hover:-translate-y-0.5"
                 >
-                  <div className="flex-1 rounded-lg bg-surface overflow-hidden">
-                    <img
-                      src={p.img}
-                      alt={p.name}
-                      loading="lazy"
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
+                  {tag && (
+                    <span className="absolute top-2 right-2 z-10 font-mono-label uppercase text-[8px] tracking-wider px-1.5 py-0.5 rounded-full bg-ink-900 text-white">
+                      {tag}
+                    </span>
+                  )}
+                  <div className="flex-1 rounded-lg bg-gradient-to-br from-white to-surface overflow-hidden flex items-center justify-center">
+                    <Illustration className="w-[78%] h-[78%] transition-transform duration-500 group-hover:scale-110" />
                   </div>
-                  <div className="mt-2 px-1 space-y-0.5">
-                    <div className="text-[10px] text-ink-500 truncate leading-tight">{p.name}</div>
-                    <div className="font-display font-semibold text-[11px] text-ink-900 leading-tight">{p.price}</div>
+                  <div className="mt-2 px-0.5 space-y-0.5">
+                    <div className="text-[10px] text-ink-500 truncate leading-tight">{name}</div>
+                    <div className="font-display font-semibold text-[11px] text-ink-900 leading-tight">{price}</div>
                   </div>
                 </div>
               ))}
