@@ -45,7 +45,7 @@ function ClientCard({ client }: { client: BannerClient }) {
           <span className="font-display font-semibold text-[14px] text-ink-500">{initials}</span>
         )}
       </div>
-      <span className="font-mono-label uppercase text-[10px] text-ink-400 group-hover:text-ink-700 transition-colors text-center line-clamp-2 max-w-[96px] leading-tight tracking-wide">
+      <span className="text-[12px] text-ink-700 font-medium group-hover:text-ink-900 transition-colors text-center line-clamp-2 max-w-[104px] leading-tight">
         {client.business_name}
       </span>
     </a>
@@ -63,7 +63,7 @@ function CounterCard() {
           +3K
         </span>
       </div>
-      <span className="font-mono-label uppercase text-[10px] text-ink-500 text-center max-w-[96px] leading-tight tracking-wide">
+      <span className="text-[12px] text-ink-700 font-medium text-center max-w-[104px] leading-tight">
         usuários ativos
       </span>
     </div>
@@ -131,7 +131,7 @@ export default function LandingSocialProof() {
   const duplicated = [...itemsWithCounter, ...itemsWithCounter];
 
   return (
-    <div className="reveal mt-14 rounded-2xl border hairline bg-surface py-10 overflow-hidden">
+    <div className="mt-14 rounded-2xl border hairline bg-surface py-10 overflow-hidden">
       <div
         className="relative"
         style={{ maskImage: 'linear-gradient(to right, transparent, black 8%, black 92%, transparent)', WebkitMaskImage: 'linear-gradient(to right, transparent, black 8%, black 92%, transparent)' }}

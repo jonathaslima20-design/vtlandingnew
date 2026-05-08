@@ -16,8 +16,22 @@ function useReveal() {
       },
       { threshold: 0.12 }
     );
-    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
+    const observed = new WeakSet<Element>();
+    const observeAll = () => {
+      document.querySelectorAll('.reveal').forEach((el) => {
+        if (!observed.has(el)) {
+          observed.add(el);
+          observer.observe(el);
+        }
+      });
+    };
+    observeAll();
+    const mutation = new MutationObserver(() => observeAll());
+    mutation.observe(document.body, { childList: true, subtree: true });
+    return () => {
+      observer.disconnect();
+      mutation.disconnect();
+    };
   }, []);
 }
 
