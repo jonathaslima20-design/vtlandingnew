@@ -1,20 +1,30 @@
 import { useEffect, useRef, useState } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
-const SLIDES = [
+const SLIDES: {
+  src: string;
+  label: string;
+  inset?: { x: string; y: string };
+}[] = [
   { src: '/mockup-1%20copy.png', label: 'Vitrine personalizada' },
   { src: '/mockup-2%20copy.png', label: 'Catálogo de produtos' },
-  { src: '/mockup-3%20copy.png', label: 'Detalhes do produto' },
+  {
+    src: '/mockup-3%20copy.png',
+    label: 'Detalhes do produto',
+    inset: { x: '5%', y: '4%' },
+  },
 ];
 
 function PhoneFrame({
   src,
   alt,
   eager,
+  inset,
 }: {
   src: string;
   alt: string;
   eager: boolean;
+  inset?: { x: string; y: string };
 }) {
   return (
     <div
@@ -58,14 +68,23 @@ function PhoneFrame({
                 'inset 0 0 0 1px rgba(255,255,255,0.04), inset 0 0 22px rgba(0,0,0,0.9)',
             }}
           >
-            <img
-              src={src}
-              alt={alt}
-              loading={eager ? 'eager' : 'lazy'}
-              decoding="async"
-              className="absolute inset-0 w-full h-full object-cover object-top select-none pointer-events-none"
-              draggable={false}
-            />
+            <div
+              className="absolute inset-0 bg-white"
+              style={
+                inset
+                  ? { padding: `${inset.y} ${inset.x}` }
+                  : undefined
+              }
+            >
+              <img
+                src={src}
+                alt={alt}
+                loading={eager ? 'eager' : 'lazy'}
+                decoding="async"
+                className={`w-full h-full ${inset ? 'object-contain' : 'object-cover'} object-top select-none pointer-events-none`}
+                draggable={false}
+              />
+            </div>
             <div
               className="absolute inset-0 pointer-events-none"
               style={{
@@ -237,7 +256,7 @@ export default function HeroPhoneCarousel() {
                 pointerEvents: isActive ? 'auto' : 'none',
               }}
             >
-              <PhoneFrame src={slide.src} alt={slide.label} eager={isActive} />
+              <PhoneFrame src={slide.src} alt={slide.label} eager={isActive} inset={slide.inset} />
             </div>
           );
         })}
