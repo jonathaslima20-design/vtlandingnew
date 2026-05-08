@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Plus, Package, MessageCircle, Gift, Instagram, Settings2, Globe as Globe2, ChartBar as BarChart3, Check, Zap, ShoppingBag, TrendingUp, Users, Star, LogIn } from 'lucide-react';
 import LandingSocialProof from '@/components/landing/LandingSocialProof';
+import HeroPhoneCarousel from '@/components/landing/HeroPhoneCarousel';
 
 function useReveal() {
   useEffect(() => {
@@ -101,6 +102,9 @@ function Hero() {
               Ver Planos
             </a>
           </div>
+        </div>
+        <div className="reveal mt-16 lg:mt-20">
+          <HeroPhoneCarousel />
         </div>
         <div className="reveal mt-20">
           <HeroPreview />
