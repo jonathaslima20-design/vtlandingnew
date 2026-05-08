@@ -106,79 +106,8 @@ function Hero() {
         <div className="reveal mt-16 lg:mt-20">
           <HeroPhoneCarousel />
         </div>
-        <div className="reveal mt-20">
-          <HeroPreview />
-        </div>
       </div>
     </section>
-  );
-}
-
-function HeroPreview() {
-  const bars = [42, 68, 55, 82, 60, 95, 78];
-  const labels = ['SEG', 'TER', 'QUA', 'QUI', 'SEX', 'SAB', 'DOM'];
-  return (
-    <div
-      className="rounded-3xl border hairline bg-surface overflow-hidden"
-      style={{ boxShadow: '0 40px 120px -40px rgba(10,10,10,0.25)' }}
-    >
-      <div className="flex items-center gap-3 px-5 py-3 border-b hairline bg-white/60">
-        <div className="flex gap-1.5">
-          <span className="w-2.5 h-2.5 rounded-full bg-[#E4E4E7]" />
-          <span className="w-2.5 h-2.5 rounded-full bg-[#E4E4E7]" />
-          <span className="w-2.5 h-2.5 rounded-full bg-[#E4E4E7]" />
-        </div>
-        <div className="flex-1 text-center font-mono-label text-[11px] text-ink-400">vitrineturbo.app/loja</div>
-        <div className="w-10" />
-      </div>
-      <div className="grid grid-cols-12 gap-6 p-6 lg:p-10">
-        <div className="col-span-12 lg:col-span-4 flex flex-col gap-4">
-          <div className="rounded-2xl border hairline bg-white p-5">
-            <div className="font-mono-label uppercase text-[10px] text-ink-400">Receita hoje</div>
-            <div className="font-display font-semibold text-3xl text-ink-900 mt-2 tracking-[-0.02em]">R$ 4.870</div>
-            <div className="inline-flex items-center gap-1 mt-3 px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700">
-              <TrendingUp size={12} />
-              <span className="font-mono-label text-[10px]">+18,2%</span>
-            </div>
-          </div>
-          <div className="rounded-2xl border hairline bg-white p-5">
-            <div className="font-mono-label uppercase text-[10px] text-ink-400">Pedidos</div>
-            <div className="font-display font-semibold text-3xl text-ink-900 mt-2 tracking-[-0.02em]">142</div>
-            <div className="mt-4 h-1.5 w-full bg-surface rounded-full overflow-hidden">
-              <div className="h-full bg-ink-900 rounded-full" style={{ width: '72%' }} />
-            </div>
-          </div>
-          <div className="rounded-2xl border hairline bg-white p-5">
-            <div className="font-mono-label uppercase text-[10px] text-ink-400">Visitas</div>
-            <div className="font-display font-semibold text-3xl text-ink-900 mt-2 tracking-[-0.02em]">8.421</div>
-          </div>
-        </div>
-        <div className="col-span-12 lg:col-span-8">
-          <div className="rounded-2xl border hairline bg-white p-6 lg:p-8 h-full">
-            <div className="flex items-start justify-between gap-4 mb-8">
-              <div>
-                <div className="font-display font-semibold text-[18px] text-ink-900">Vendas nos últimos 7 dias</div>
-                <div className="text-ink-500 text-[13px] mt-1">Performance em tempo real</div>
-              </div>
-              <span className="font-mono-label uppercase text-[10px] text-ink-500 border hairline rounded-full px-2.5 py-1">
-                MAI 2026
-              </span>
-            </div>
-            <div className="flex items-end justify-between gap-3 h-48">
-              {bars.map((h, i) => (
-                <div key={i} className="flex-1 flex flex-col items-center gap-2">
-                  <div
-                    className="chart-bar w-full bg-ink-900 rounded-t-md"
-                    style={{ height: `${h}%`, animationDelay: `${0.08 * i}s` }}
-                  />
-                  <span className="font-mono-label text-[10px] text-ink-400">{labels[i]}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
   );
 }
 
