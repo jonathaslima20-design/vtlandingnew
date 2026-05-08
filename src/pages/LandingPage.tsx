@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Plus, Package, MessageCircle, Gift, Instagram, Settings2, Globe as Globe2, ChartBar as BarChart3, Check, Zap, ShoppingBag, TrendingUp, Users, Star, LogIn } from 'lucide-react';
+import LandingSocialProof from '@/components/landing/LandingSocialProof';
 
 function useReveal() {
   useEffect(() => {
@@ -472,6 +473,17 @@ function PricingCard({
   );
 }
 
+function SocialProofSection() {
+  return (
+    <section id="prova-social" className="py-24 lg:py-32 bg-white border-t hairline">
+      <div className="max-w-7xl mx-auto px-6 lg:px-10">
+        <SectionHeading kicker="/ prova social" title="Junte-se a milhares de usuários do VitrineTurbo" />
+        <LandingSocialProof />
+      </div>
+    </section>
+  );
+}
+
 function PricingSection() {
   return (
     <section id="precos" className="py-24 lg:py-32 bg-white border-t hairline">
@@ -578,6 +590,7 @@ export default function LandingPage() {
       <Hero />
       <BentoGrid />
       <AnalyticsSection />
+      <SocialProofSection />
       <PricingSection />
       <FaqSection />
       <FinalCTA />
