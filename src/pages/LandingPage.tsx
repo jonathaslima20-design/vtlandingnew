@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { ArrowRight, Plus, Package, MessageCircle, Gift, Instagram, Settings2, Globe as Globe2, ChartBar as BarChart3, Check, Zap, ShoppingBag, TrendingUp, Users, Star, LogIn } from 'lucide-react';
 
 function useReveal() {
@@ -50,10 +51,10 @@ function Header() {
           <a href="#precos" className="hidden sm:inline-flex btn-ghost rounded-full px-4 py-2 text-[13px] font-display font-medium">
             Ver Planos
           </a>
-          <a href="/login" className="btn-primary rounded-full px-4 py-2 text-[13px] font-display font-medium inline-flex items-center gap-1.5">
+          <Link to="/login" className="btn-primary rounded-full px-4 py-2 text-[13px] font-display font-medium inline-flex items-center gap-1.5">
             <LogIn size={14} />
             Entrar
-          </a>
+          </Link>
         </div>
       </div>
     </header>
