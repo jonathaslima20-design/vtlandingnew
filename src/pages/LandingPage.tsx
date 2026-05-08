@@ -167,12 +167,53 @@ function BentoGrid() {
             className="lg:col-span-2 lg:row-span-2"
           >
             <div className="grid grid-cols-3 gap-3">
-              {[1, 2, 3, 4, 5, 6].map((i) => (
-                <div key={i} className="aspect-square rounded-xl border hairline bg-white p-3 flex flex-col justify-between">
-                  <div className="flex-1 rounded-lg bg-surface" />
-                  <div className="mt-2 space-y-1.5">
-                    <div className="h-1.5 w-2/3 bg-[#E4E4E7] rounded-full" />
-                    <div className="font-mono-label text-[10px] text-ink-900">R$ {i * 29}</div>
+              {[
+                {
+                  name: 'Camiseta Oversized',
+                  price: 'R$ 149',
+                  img: 'https://images.pexels.com/photos/996329/pexels-photo-996329.jpeg?auto=compress&cs=tinysrgb&w=400',
+                },
+                {
+                  name: 'Tênis Runner',
+                  price: 'R$ 389',
+                  img: 'https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg?auto=compress&cs=tinysrgb&w=400',
+                },
+                {
+                  name: 'Bola Oficial',
+                  price: 'R$ 219',
+                  img: 'https://images.pexels.com/photos/47343/the-ball-stadion-football-the-pitch-47343.jpeg?auto=compress&cs=tinysrgb&w=400',
+                },
+                {
+                  name: 'Raquete Pro',
+                  price: 'R$ 649',
+                  img: 'https://images.pexels.com/photos/1432039/pexels-photo-1432039.jpeg?auto=compress&cs=tinysrgb&w=400',
+                },
+                {
+                  name: 'Mouse Gamer',
+                  price: 'R$ 279',
+                  img: 'https://images.pexels.com/photos/2115257/pexels-photo-2115257.jpeg?auto=compress&cs=tinysrgb&w=400',
+                },
+                {
+                  name: 'Cupcake Artesanal',
+                  price: 'R$ 18',
+                  img: 'https://images.pexels.com/photos/1055270/pexels-photo-1055270.jpeg?auto=compress&cs=tinysrgb&w=400',
+                },
+              ].map((p) => (
+                <div
+                  key={p.name}
+                  className="group aspect-square rounded-xl border hairline bg-white p-2 flex flex-col justify-between overflow-hidden transition-all duration-300 hover:shadow-md hover:-translate-y-0.5"
+                >
+                  <div className="flex-1 rounded-lg bg-surface overflow-hidden">
+                    <img
+                      src={p.img}
+                      alt={p.name}
+                      loading="lazy"
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                  </div>
+                  <div className="mt-2 px-1 space-y-0.5">
+                    <div className="text-[10px] text-ink-500 truncate leading-tight">{p.name}</div>
+                    <div className="font-display font-semibold text-[11px] text-ink-900 leading-tight">{p.price}</div>
                   </div>
                 </div>
               ))}
