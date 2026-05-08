@@ -22,27 +22,41 @@ function PhoneFrame({
       style={{
         width: 'clamp(220px, 26vw, 280px)',
         aspectRatio: '9 / 19.5',
-        filter: 'drop-shadow(0 40px 60px rgba(10,10,10,0.28)) drop-shadow(0 12px 24px rgba(10,10,10,0.18))',
+        filter:
+          'drop-shadow(0 50px 70px rgba(10,10,10,0.30)) drop-shadow(0 16px 28px rgba(10,10,10,0.18)) drop-shadow(0 4px 10px rgba(10,10,10,0.12))',
       }}
     >
       <div
-        className="absolute inset-0 rounded-[14%/6.5%]"
+        className="absolute inset-0 rounded-[18%/8.2%]"
         style={{
           background:
-            'linear-gradient(145deg, #2a2a2e 0%, #141416 45%, #0a0a0b 100%)',
-          padding: '3px',
+            'linear-gradient(135deg, #8a8a8e 0%, #5c5c60 8%, #3a3a3d 22%, #232326 45%, #2d2d30 62%, #4a4a4d 82%, #6f6f73 100%)',
+          padding: '2.5px',
         }}
       >
         <div
-          className="relative w-full h-full rounded-[13%/6%] overflow-hidden"
+          aria-hidden
+          className="absolute inset-0 rounded-[18%/8.2%] pointer-events-none"
           style={{
             background:
-              'linear-gradient(160deg, #1a1a1c 0%, #050506 60%, #1a1a1c 100%)',
-            padding: '6px',
+              'linear-gradient(115deg, rgba(255,255,255,0.35) 0%, rgba(255,255,255,0) 18%, rgba(255,255,255,0) 72%, rgba(255,255,255,0.18) 92%, rgba(255,255,255,0) 100%)',
+            mixBlendMode: 'overlay',
+          }}
+        />
+        <div
+          className="relative w-full h-full rounded-[17%/7.7%] overflow-hidden"
+          style={{
+            background:
+              'linear-gradient(160deg, #2c2c2f 0%, #0d0d0f 50%, #202024 100%)',
+            padding: '4px',
           }}
         >
           <div
-            className="relative w-full h-full rounded-[11%/5%] overflow-hidden bg-black"
+            className="relative w-full h-full rounded-[15.5%/7%] overflow-hidden bg-black"
+            style={{
+              boxShadow:
+                'inset 0 0 0 1px rgba(255,255,255,0.04), inset 0 0 22px rgba(0,0,0,0.9)',
+            }}
           >
             <img
               src={src}
@@ -56,40 +70,83 @@ function PhoneFrame({
               className="absolute inset-0 pointer-events-none"
               style={{
                 background:
-                  'linear-gradient(125deg, rgba(255,255,255,0.10) 0%, rgba(255,255,255,0) 28%, rgba(255,255,255,0) 72%, rgba(255,255,255,0.06) 100%)',
+                  'linear-gradient(125deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0) 26%, rgba(255,255,255,0) 74%, rgba(255,255,255,0.07) 100%)',
               }}
             />
             <div
-              className="absolute left-1/2 -translate-x-1/2 rounded-full bg-black"
+              className="absolute left-1/2 -translate-x-1/2 rounded-full bg-black flex items-center justify-end pr-[6%]"
               style={{
-                top: '1.6%',
-                width: '34%',
-                height: '3.4%',
-                boxShadow: 'inset 0 0 0 1px rgba(40,40,44,0.8)',
+                top: '1.4%',
+                width: '32%',
+                height: '3.6%',
+                boxShadow:
+                  'inset 0 0 0 1px rgba(30,30,32,0.9), 0 1px 2px rgba(0,0,0,0.5)',
               }}
-            />
+            >
+              <span
+                aria-hidden
+                className="block rounded-full"
+                style={{
+                  width: '22%',
+                  height: '55%',
+                  background:
+                    'radial-gradient(circle at 35% 35%, #2a3340 0%, #0a1018 55%, #000 100%)',
+                  boxShadow:
+                    'inset 0 0 0 1px rgba(60,70,90,0.6), inset 0 0 2px rgba(120,160,220,0.25)',
+                }}
+              />
+            </div>
           </div>
         </div>
       </div>
+
       <span
         aria-hidden
-        className="absolute bg-[#1d1d20] rounded-r-sm"
-        style={{ left: '-1.5px', top: '16%', width: '2.5px', height: '5%' }}
+        className="absolute rounded-r-[2px]"
+        style={{
+          left: '-2px',
+          top: '15.5%',
+          width: '3px',
+          height: '4.5%',
+          background: 'linear-gradient(90deg, #2a2a2d 0%, #4a4a4d 60%, #2a2a2d 100%)',
+          boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.15)',
+        }}
       />
       <span
         aria-hidden
-        className="absolute bg-[#1d1d20] rounded-r-sm"
-        style={{ left: '-1.5px', top: '24%', width: '2.5px', height: '8%' }}
+        className="absolute rounded-r-[2px]"
+        style={{
+          left: '-2px',
+          top: '23%',
+          width: '3px',
+          height: '7.5%',
+          background: 'linear-gradient(90deg, #2a2a2d 0%, #4a4a4d 60%, #2a2a2d 100%)',
+          boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.15)',
+        }}
       />
       <span
         aria-hidden
-        className="absolute bg-[#1d1d20] rounded-r-sm"
-        style={{ left: '-1.5px', top: '34%', width: '2.5px', height: '8%' }}
+        className="absolute rounded-r-[2px]"
+        style={{
+          left: '-2px',
+          top: '32%',
+          width: '3px',
+          height: '7.5%',
+          background: 'linear-gradient(90deg, #2a2a2d 0%, #4a4a4d 60%, #2a2a2d 100%)',
+          boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.15)',
+        }}
       />
       <span
         aria-hidden
-        className="absolute bg-[#1d1d20] rounded-l-sm"
-        style={{ right: '-1.5px', top: '22%', width: '2.5px', height: '12%' }}
+        className="absolute rounded-l-[2px]"
+        style={{
+          right: '-2px',
+          top: '25%',
+          width: '3px',
+          height: '11%',
+          background: 'linear-gradient(270deg, #2a2a2d 0%, #4a4a4d 60%, #2a2a2d 100%)',
+          boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.15)',
+        }}
       />
     </div>
   );
