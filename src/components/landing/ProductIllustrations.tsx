@@ -42,30 +42,73 @@ export function SneakerIllustration({ className }: IllustrationProps) {
   return (
     <svg {...baseProps} className={className} aria-hidden="true">
       <defs>
-        <linearGradient id="sneakerFill" x1="0" y1="0" x2="0" y2="1">
+        <linearGradient id="sneakerBody" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor="#FFFFFF" />
+          <stop offset="100%" stopColor="#D4D4D8" />
+        </linearGradient>
+        <linearGradient id="sneakerToe" x1="0" y1="0" x2="0" y2="1">
           <stop offset="0%" stopColor="#FAFAFA" />
-          <stop offset="100%" stopColor="#E4E4E7" />
+          <stop offset="100%" stopColor="#C7C7CC" />
         </linearGradient>
       </defs>
+      <ellipse cx="100" cy="168" rx="72" ry="6" fill="#0A0A0A" opacity="0.12" />
       <path
-        d="M30 128 Q30 112 46 108 L70 98 Q82 92 92 80 L108 62 Q116 54 126 60 Q134 66 130 78 L124 96 L156 106 Q172 110 174 126 L174 138 Q174 146 166 146 L38 146 Q30 146 30 138 Z"
-        fill="url(#sneakerFill)"
+        d="M22 142 L22 128 Q22 118 34 114 L60 106 Q74 102 82 94 L100 74 Q108 66 118 70 L138 78 Q148 82 150 92 L154 110 L172 118 Q184 124 184 138 L184 144 Z"
+        fill="url(#sneakerBody)"
         stroke="#0A0A0A"
         strokeWidth="2.5"
         strokeLinejoin="round"
       />
-      <path d="M30 138 L174 138" stroke="#0A0A0A" strokeWidth="2.5" />
-      <path d="M30 146 L174 146 L170 156 L34 156 Z" fill="#0A0A0A" opacity="0.9" />
       <path
-        d="M92 82 L100 94 M104 72 L112 86 M116 64 L124 78"
+        d="M100 74 Q108 66 118 70 L138 78 Q148 82 150 92 L154 110 L138 110 Q126 110 118 102 L100 82 Q94 78 100 74 Z"
+        fill="url(#sneakerToe)"
+        stroke="#0A0A0A"
+        strokeWidth="2"
+        strokeLinejoin="round"
+        opacity="0.9"
+      />
+      <path
+        d="M70 110 Q82 86 118 80"
+        stroke="#0A0A0A"
+        strokeWidth="2.2"
+        strokeLinecap="round"
+        fill="none"
+        opacity="0.6"
+      />
+      <path
+        d="M60 122 L140 112"
         stroke="#0A0A0A"
         strokeWidth="2"
         strokeLinecap="round"
+        opacity="0.35"
+      />
+      <path
+        d="M88 108 L94 94 M98 112 L106 96 M110 114 L120 100"
+        stroke="#0A0A0A"
+        strokeWidth="2"
+        strokeLinecap="round"
+      />
+      <path
+        d="M22 142 L184 144 L184 152 Q184 160 176 160 L30 160 Q22 160 22 152 Z"
+        fill="#0A0A0A"
+      />
+      <path
+        d="M30 160 L176 160"
+        stroke="#FAFAFA"
+        strokeWidth="1.5"
+        opacity="0.3"
+      />
+      <circle cx="46" cy="134" r="2.5" fill="#0A0A0A" />
+      <circle cx="62" cy="128" r="2.5" fill="#0A0A0A" />
+      <circle cx="78" cy="122" r="2.5" fill="#0A0A0A" />
+      <path
+        d="M44 134 Q54 126 64 128 M60 128 Q70 120 80 122 M76 122 Q86 114 96 116"
+        stroke="#0A0A0A"
+        strokeWidth="1.5"
+        fill="none"
+        strokeLinecap="round"
         opacity="0.7"
       />
-      <circle cx="54" cy="126" r="3" fill="#0A0A0A" />
-      <circle cx="72" cy="120" r="3" fill="#0A0A0A" />
-      <circle cx="90" cy="114" r="3" fill="#0A0A0A" />
     </svg>
   );
 }
@@ -74,30 +117,65 @@ export function BallIllustration({ className }: IllustrationProps) {
   return (
     <svg {...baseProps} className={className} aria-hidden="true">
       <defs>
-        <radialGradient id="ballFill" cx="0.4" cy="0.35">
+        <radialGradient id="ballFill" cx="0.35" cy="0.3" r="0.85">
           <stop offset="0%" stopColor="#FFFFFF" />
-          <stop offset="100%" stopColor="#D4D4D8" />
+          <stop offset="60%" stopColor="#F4F4F5" />
+          <stop offset="100%" stopColor="#A1A1AA" />
+        </radialGradient>
+        <radialGradient id="ballShine" cx="0.3" cy="0.25" r="0.4">
+          <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.85" />
+          <stop offset="100%" stopColor="#FFFFFF" stopOpacity="0" />
         </radialGradient>
       </defs>
-      <circle cx="100" cy="100" r="68" fill="url(#ballFill)" stroke="#0A0A0A" strokeWidth="2.5" />
+      <ellipse cx="100" cy="176" rx="62" ry="6" fill="#0A0A0A" opacity="0.15" />
+      <circle cx="100" cy="100" r="72" fill="url(#ballFill)" stroke="#0A0A0A" strokeWidth="2.5" />
       <polygon
-        points="100,78 118,90 112,110 88,110 82,90"
+        points="100,74 122,88 114,114 86,114 78,88"
         fill="#0A0A0A"
       />
-      <path
-        d="M118 90 L142 84 M82 90 L58 84 M88 110 L76 134 M112 110 L124 134 M100 78 L100 58"
+      <polygon
+        points="100,74 78,88 62,72 80,54 100,58"
+        fill="#FFFFFF"
         stroke="#0A0A0A"
-        strokeWidth="2.2"
-        strokeLinecap="round"
+        strokeWidth="2"
+        strokeLinejoin="round"
+      />
+      <polygon
+        points="100,74 122,88 138,72 120,54 100,58"
+        fill="#FFFFFF"
+        stroke="#0A0A0A"
+        strokeWidth="2"
+        strokeLinejoin="round"
+      />
+      <polygon
+        points="78,88 86,114 68,128 50,112 62,88"
+        fill="#FFFFFF"
+        stroke="#0A0A0A"
+        strokeWidth="2"
+        strokeLinejoin="round"
+      />
+      <polygon
+        points="122,88 114,114 132,128 150,112 138,88"
+        fill="#FFFFFF"
+        stroke="#0A0A0A"
+        strokeWidth="2"
+        strokeLinejoin="round"
+      />
+      <polygon
+        points="86,114 114,114 118,140 100,150 82,140"
+        fill="#FFFFFF"
+        stroke="#0A0A0A"
+        strokeWidth="2"
+        strokeLinejoin="round"
       />
       <path
-        d="M58 84 L48 106 L76 134 M142 84 L152 106 L124 134 M76 134 L100 150 L124 134"
+        d="M62 72 L44 60 M138 72 L156 60 M50 112 L34 122 M150 112 L166 122 M82 140 L74 160 M118 140 L126 160 M80 54 L74 38 M120 54 L126 38"
         stroke="#0A0A0A"
         strokeWidth="2"
         strokeLinecap="round"
-        fill="none"
-        opacity="0.85"
+        opacity="0.45"
       />
+      <circle cx="100" cy="100" r="72" fill="url(#ballShine)" pointerEvents="none" />
     </svg>
   );
 }
