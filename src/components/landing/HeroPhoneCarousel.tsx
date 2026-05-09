@@ -93,7 +93,7 @@ function IPhone16ProMax({ src, alt, eager }: { src: string; alt: string; eager: 
               className="absolute left-0 right-0 pointer-events-none"
               style={{
                 top: '6.5%',
-                height: '9%',
+                height: '6%',
                 background: '#f2f2f7',
                 zIndex: 18,
                 display: 'flex',
@@ -102,14 +102,14 @@ function IPhone16ProMax({ src, alt, eager }: { src: string; alt: string; eager: 
                 gap: '3%',
               }}
             >
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#555" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#555" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                 <circle cx="12" cy="12" r="10" />
                 <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
               </svg>
-              <div style={{ flex: 1, background: '#e5e5ea', borderRadius: '7px', height: '58%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <span style={{ fontSize: '6.5px', fontWeight: 500, color: '#111', letterSpacing: '0.01em' }}>vitrineturbo.com</span>
+              <div style={{ flex: 1, background: '#e5e5ea', borderRadius: '6px', height: '60%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <span style={{ fontSize: '6px', fontWeight: 500, color: '#111', letterSpacing: '0.01em' }}>vitrineturbo.com</span>
               </div>
-              <svg width="12" height="13" viewBox="0 0 24 24" fill="none" stroke="#555" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#555" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8" />
                 <polyline points="16 6 12 2 8 6" />
                 <line x1="12" y1="2" x2="12" y2="15" />
@@ -119,7 +119,7 @@ function IPhone16ProMax({ src, alt, eager }: { src: string; alt: string; eager: 
             {/* ── Screen content ── */}
             <div
               className="absolute left-0 right-0 overflow-hidden"
-              style={{ top: '15.5%', bottom: '11.5%', zIndex: 10 }}
+              style={{ top: '12.5%', bottom: '11.5%', zIndex: 10 }}
             >
               <img
                 src={src}
