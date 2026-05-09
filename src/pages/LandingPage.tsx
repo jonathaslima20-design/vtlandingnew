@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Plus, Package, MessageCircle, Gift, Instagram, Settings2, Globe as Globe2, ChartBar as BarChart3, Check, Zap, ShoppingBag, TrendingUp, Users, Star, LogIn } from 'lucide-react';
+import { ArrowRight, Plus, Package, MessageCircle, Gift, Instagram, Settings2, Globe as Globe2, ChartBar as BarChart3, Check, Zap, ShoppingBag, TrendingUp, Users, Star, LogIn, ShoppingCart } from 'lucide-react';
 import LandingSocialProof from '@/components/landing/LandingSocialProof';
 import HeroPhoneCarousel from '@/components/landing/HeroPhoneCarousel';
 
@@ -229,15 +229,27 @@ function BentoGrid() {
             </div>
           </BentoCard>
 
-          <BentoCard idx="04" title="WhatsApp e Instagram" Icon={Instagram}>
-            <div className="grid grid-cols-2 gap-3">
-              <div className="rounded-xl border hairline bg-white p-3">
-                <MessageCircle size={16} className="text-ink-900" />
-                <div className="font-mono-label uppercase text-[10px] text-emerald-600 mt-3">Conectado</div>
-              </div>
-              <div className="rounded-xl border hairline bg-white p-3">
-                <Instagram size={16} className="text-ink-900" />
-                <div className="font-mono-label uppercase text-[10px] text-emerald-600 mt-3">Conectado</div>
+          <BentoCard idx="04" title="Carrinho de Compras" Icon={ShoppingCart}>
+            <div className="space-y-2">
+              {[
+                { name: 'Camiseta Oversized Preta', qty: 2, price: 'R$ 89,90' },
+                { name: 'Chuteira Nike Mercurial', qty: 1, price: 'R$ 349,00' },
+                { name: 'Bola Nike Pitch Team', qty: 3, price: 'R$ 129,90' },
+              ].map((item, i) => (
+                <div key={i} className="flex items-center gap-2.5 rounded-xl border hairline bg-white px-3 py-2">
+                  <div className="w-7 h-7 rounded-lg bg-ink-50 flex items-center justify-center flex-shrink-0">
+                    <Package size={13} className="text-ink-400" />
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <div className="text-[11px] font-medium text-ink-900 truncate">{item.name}</div>
+                    <div className="text-[10px] text-ink-400">Qtd: {item.qty}</div>
+                  </div>
+                  <div className="text-[11px] font-semibold text-ink-900 flex-shrink-0">{item.price}</div>
+                </div>
+              ))}
+              <div className="flex items-center justify-between pt-1 px-1">
+                <div className="font-mono-label uppercase text-[10px] text-ink-400">Total</div>
+                <div className="text-[13px] font-semibold text-ink-900">R$ 918,60</div>
               </div>
             </div>
           </BentoCard>
