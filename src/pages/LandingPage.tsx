@@ -354,11 +354,10 @@ function AnalyticsSection() {
                   strokeLinecap="round"
                 />
               </svg>
-              <div className="grid grid-cols-3 gap-4 mt-6 pt-6 border-t hairline">
+              <div className="grid grid-cols-2 gap-4 mt-6 pt-6 border-t hairline">
                 {[
-                  { l: 'Sessões', v: '42.1k' },
-                  { l: 'Vendas', v: '3.412' },
-                  { l: 'Receita', v: 'R$ 184k' },
+                  { l: 'Visualizações', v: '58.3k' },
+                  { l: 'Leads', v: '2.184' },
                 ].map((m) => (
                   <div key={m.l}>
                     <div className="font-mono-label uppercase text-[10px] text-ink-400">{m.l}</div>
