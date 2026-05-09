@@ -10,14 +10,51 @@ const SLIDES: {
   {
     src: '/mockup-2%20copy.png',
     label: 'Catálogo de produtos',
-    inset: { x: '5%', top: '9%', bottom: '4%' },
+    inset: { x: '5%', top: '15%', bottom: '4%' },
   },
   {
     src: '/mockup-3%20copy.png',
     label: 'Detalhes do produto',
-    inset: { x: '5%', top: '9%', bottom: '4%' },
+    inset: { x: '5%', top: '15%', bottom: '4%' },
   },
 ];
+
+function StatusBar() {
+  return (
+    <div
+      aria-hidden
+      className="absolute left-0 right-0 flex items-center justify-between pointer-events-none"
+      style={{ top: '6.2%', padding: '0 6% 0 6%', height: '4%', zIndex: 20 }}
+    >
+      {/* Time */}
+      <span style={{ fontSize: '7px', fontWeight: 600, color: '#111', letterSpacing: '0.02em', lineHeight: 1 }}>
+        9:41
+      </span>
+      {/* Icons */}
+      <div style={{ display: 'flex', alignItems: 'center', gap: '3px' }}>
+        {/* Signal bars */}
+        <svg width="10" height="7" viewBox="0 0 10 7" fill="none">
+          <rect x="0" y="4" width="2" height="3" rx="0.4" fill="#111" />
+          <rect x="2.7" y="2.5" width="2" height="4.5" rx="0.4" fill="#111" />
+          <rect x="5.4" y="1" width="2" height="6" rx="0.4" fill="#111" />
+          <rect x="8.1" y="0" width="2" height="7" rx="0.4" fill="#111" opacity="0.25" />
+        </svg>
+        {/* Wifi */}
+        <svg width="9" height="7" viewBox="0 0 9 7" fill="none">
+          <path d="M4.5 5.5 a0.5 0.5 0 1 1 0 .01" stroke="#111" strokeWidth="1.2" strokeLinecap="round" />
+          <path d="M2.8 4.0 Q4.5 2.8 6.2 4.0" stroke="#111" strokeWidth="0.9" strokeLinecap="round" fill="none" />
+          <path d="M1.2 2.6 Q4.5 0.4 7.8 2.6" stroke="#111" strokeWidth="0.9" strokeLinecap="round" fill="none" opacity="0.45" />
+        </svg>
+        {/* Battery */}
+        <svg width="14" height="7" viewBox="0 0 14 7" fill="none">
+          <rect x="0.5" y="0.5" width="11" height="6" rx="1.2" stroke="#111" strokeWidth="0.8" />
+          <rect x="1.5" y="1.5" width="8" height="4" rx="0.6" fill="#111" />
+          <path d="M12 2.2 v2.6" stroke="#111" strokeWidth="1" strokeLinecap="round" opacity="0.5" />
+        </svg>
+      </div>
+    </div>
+  );
+}
 
 function PhoneFrame({
   src,
@@ -66,18 +103,19 @@ function PhoneFrame({
           }}
         >
           <div
-            className="relative w-full h-full rounded-[15.5%/7%] overflow-hidden bg-black"
+            className="relative w-full h-full rounded-[15.5%/7%] overflow-hidden bg-white"
             style={{
               boxShadow:
                 'inset 0 0 0 1px rgba(255,255,255,0.04), inset 0 0 22px rgba(0,0,0,0.9)',
             }}
           >
+            {/* Screen content */}
             <div
               className="absolute inset-0 bg-white"
               style={
                 inset
                   ? { padding: `${inset.top} ${inset.x} ${inset.bottom} ${inset.x}` }
-                  : undefined
+                  : { paddingTop: '14%' }
               }
             >
               <img
@@ -89,19 +127,18 @@ function PhoneFrame({
                 draggable={false}
               />
             </div>
-            <div
-              className="absolute inset-0 pointer-events-none"
-              style={{
-                background:
-                  'linear-gradient(125deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0) 26%, rgba(255,255,255,0) 74%, rgba(255,255,255,0.07) 100%)',
-              }}
-            />
+
+            {/* Status bar — sits above content */}
+            <StatusBar />
+
+            {/* Dynamic island */}
             <div
               className="absolute left-1/2 -translate-x-1/2 rounded-full bg-black flex items-center justify-end pr-[6%]"
               style={{
                 top: '1.4%',
                 width: '32%',
                 height: '3.6%',
+                zIndex: 30,
                 boxShadow:
                   'inset 0 0 0 1px rgba(30,30,32,0.9), 0 1px 2px rgba(0,0,0,0.5)',
               }}
@@ -119,10 +156,21 @@ function PhoneFrame({
                 }}
               />
             </div>
+
+            {/* Screen glare */}
+            <div
+              className="absolute inset-0 pointer-events-none"
+              style={{
+                zIndex: 40,
+                background:
+                  'linear-gradient(125deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0) 26%, rgba(255,255,255,0) 74%, rgba(255,255,255,0.07) 100%)',
+              }}
+            />
           </div>
         </div>
       </div>
 
+      {/* Side buttons */}
       <span
         aria-hidden
         className="absolute rounded-r-[2px]"
