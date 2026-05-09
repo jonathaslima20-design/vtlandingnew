@@ -85,7 +85,7 @@ function Hero() {
         <div className="stagger max-w-4xl">
           <div className="inline-flex items-center gap-2 border hairline bg-white rounded-full px-3 py-1.5">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-            <span className="font-mono-label uppercase text-[11px] text-ink-700">Catálogo Digital — v2.5</span>
+            <span className="font-mono-label uppercase text-[11px] text-ink-700">VitrineTurbo — v2.5</span>
           </div>
           <h1 className="font-display font-semibold text-[44px] sm:text-[64px] lg:text-[84px] leading-[1.02] tracking-[-0.035em] text-ink-900 mt-6">
             Seu Catálogo Digital em Minutos.
