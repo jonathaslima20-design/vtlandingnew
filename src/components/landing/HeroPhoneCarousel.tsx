@@ -6,14 +6,14 @@ const SLIDES: {
   label: string;
   inset?: { x: string; top: string; bottom: string };
 }[] = [
-  { src: '/mockup-1%20copy.png', label: 'Vitrine personalizada' },
+  { src: '/mockup-1.png', label: 'Vitrine personalizada' },
   {
-    src: '/mockup-2%20copy.png',
+    src: '/mockup-2.png',
     label: 'Catálogo de produtos',
     inset: { x: '5%', top: '15%', bottom: '4%' },
   },
   {
-    src: '/mockup-3%20copy.png',
+    src: '/mockup-3.png',
     label: 'Detalhes do produto',
     inset: { x: '5%', top: '15%', bottom: '4%' },
   },
@@ -357,4 +357,3 @@ export default function HeroPhoneCarousel() {
 }
 
 
-export default HeroPhoneCarousel
