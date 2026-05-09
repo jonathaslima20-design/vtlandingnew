@@ -12,7 +12,7 @@ function IPhone16ProMax({ src, alt, eager }: { src: string; alt: string; eager: 
     <div
       className="relative select-none"
       style={{
-        width: 'clamp(210px, 24vw, 270px)',
+        width: 'clamp(180px, 52vw, 270px)',
         aspectRatio: '393 / 852',
         filter:
           'drop-shadow(0 50px 70px rgba(0,0,0,0.30)) drop-shadow(0 16px 28px rgba(0,0,0,0.18)) drop-shadow(0 4px 10px rgba(0,0,0,0.12))',
@@ -206,7 +206,7 @@ export default function HeroPhoneCarousel() {
           return (
             <div
               key={slide.src}
-              className={`absolute top-1/2 left-1/2 ${!isActive ? 'hidden md:block' : ''}`}
+              className="absolute top-1/2 left-1/2"
               aria-hidden={!isActive}
               style={{
                 transform: `translate(-50%, -50%) translateX(${translateX}%) rotateY(${rotateY}deg) scale(${scale})`,
