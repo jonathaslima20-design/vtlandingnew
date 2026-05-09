@@ -57,55 +57,116 @@ function IPhone16ProMax({ src, alt, eager }: { src: string; alt: string; eager: 
               boxShadow: 'inset 0 0 0 1px rgba(255,255,255,0.06), inset 0 0 28px rgba(0,0,0,0.85)',
             }}
           >
-            {/* Screen content — full bleed from top */}
-            <img
-              src={src}
-              alt={alt}
-              loading={eager ? 'eager' : 'lazy'}
-              decoding="async"
-              draggable={false}
-              className="absolute inset-0 w-full h-full object-cover object-top pointer-events-none"
-            />
-
-            {/* Status bar overlay — subtle gradient so text reads on any content */}
-            <div
-              aria-hidden
-              className="absolute left-0 right-0 pointer-events-none"
-              style={{
-                top: 0,
-                height: '7%',
-                background: 'linear-gradient(to bottom, rgba(255,255,255,0.72) 0%, rgba(255,255,255,0) 100%)',
-                zIndex: 15,
-              }}
-            />
-
-            {/* Status bar text + icons */}
+            {/* ── Status bar ── */}
             <div
               aria-hidden
               className="absolute left-0 right-0 flex items-center justify-between pointer-events-none"
-              style={{ top: '1.2%', height: '4%', padding: '0 6%', zIndex: 20 }}
+              style={{ top: 0, height: '6.5%', background: '#fff', padding: '0 5%', zIndex: 20 }}
             >
               <span style={{ fontSize: '7px', fontWeight: 700, color: '#111', letterSpacing: '0.01em', lineHeight: 1 }}>
-                9:41
+                8:59
               </span>
               <div style={{ display: 'flex', alignItems: 'center', gap: '3px' }}>
                 <svg width="11" height="8" viewBox="0 0 11 8" fill="none">
                   <rect x="0" y="4.5" width="2" height="3.5" rx="0.4" fill="#111" />
                   <rect x="3" y="3" width="2" height="5" rx="0.4" fill="#111" />
                   <rect x="6" y="1.5" width="2" height="6.5" rx="0.4" fill="#111" />
-                  <rect x="9" y="0" width="2" height="8" rx="0.4" fill="#111" opacity="0.3" />
+                  <rect x="9" y="0" width="2" height="8" rx="0.4" fill="#111" />
                 </svg>
                 <svg width="10" height="8" viewBox="0 0 10 8" fill="none">
-                  <path d="M5 6a0.6 0.6 0 1 1 0 .01" stroke="#111" strokeWidth="1.4" strokeLinecap="round" />
-                  <path d="M3 4.4Q5 3 7 4.4" stroke="#111" strokeWidth="1" strokeLinecap="round" fill="none" />
-                  <path d="M1.2 2.8Q5 0.2 8.8 2.8" stroke="#111" strokeWidth="1" strokeLinecap="round" fill="none" opacity="0.4" />
+                  <path d="M5 6.2a0.65 0.65 0 1 1 0 .01" stroke="#111" strokeWidth="1.4" strokeLinecap="round" />
+                  <path d="M2.8 4.4Q5 2.8 7.2 4.4" stroke="#111" strokeWidth="1" strokeLinecap="round" fill="none" />
+                  <path d="M1 2.6Q5 0 9 2.6" stroke="#111" strokeWidth="1" strokeLinecap="round" fill="none" />
                 </svg>
-                <svg width="16" height="8" viewBox="0 0 16 8" fill="none">
-                  <rect x="0.5" y="0.5" width="12.5" height="7" rx="1.5" stroke="#111" strokeWidth="0.8" />
-                  <rect x="1.5" y="1.5" width="9.5" height="5" rx="0.8" fill="#111" />
-                  <path d="M14 2.6v2.8" stroke="#111" strokeWidth="1.1" strokeLinecap="round" opacity="0.5" />
+                <svg width="20" height="8" viewBox="0 0 20 8" fill="none">
+                  <rect x="0.5" y="0.5" width="15" height="7" rx="1.5" stroke="#111" strokeWidth="0.8" />
+                  <rect x="1.5" y="1.5" width="12" height="5" rx="0.8" fill="#111" />
+                  <path d="M17 2.8v2.4" stroke="#111" strokeWidth="1.2" strokeLinecap="round" opacity="0.5" />
+                  <text x="3.5" y="6.2" fontSize="4.2" fill="#fff" fontWeight="700" fontFamily="system-ui">96</text>
                 </svg>
               </div>
+            </div>
+
+            {/* ── Browser address bar (Safari style) ── */}
+            <div
+              aria-hidden
+              className="absolute left-0 right-0 pointer-events-none"
+              style={{
+                top: '6.5%',
+                height: '9%',
+                background: '#f2f2f7',
+                zIndex: 18,
+                display: 'flex',
+                alignItems: 'center',
+                padding: '0 4%',
+                gap: '3%',
+              }}
+            >
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#555" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="12" cy="12" r="10" />
+                <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+              </svg>
+              <div style={{ flex: 1, background: '#e5e5ea', borderRadius: '7px', height: '58%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <span style={{ fontSize: '6.5px', fontWeight: 500, color: '#111', letterSpacing: '0.01em' }}>vitrineturbo.com</span>
+              </div>
+              <svg width="12" height="13" viewBox="0 0 24 24" fill="none" stroke="#555" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8" />
+                <polyline points="16 6 12 2 8 6" />
+                <line x1="12" y1="2" x2="12" y2="15" />
+              </svg>
+            </div>
+
+            {/* ── Screen content ── */}
+            <div
+              className="absolute left-0 right-0 overflow-hidden"
+              style={{ top: '15.5%', bottom: '11.5%', zIndex: 10 }}
+            >
+              <img
+                src={src}
+                alt={alt}
+                loading={eager ? 'eager' : 'lazy'}
+                decoding="async"
+                draggable={false}
+                className="w-full h-full object-cover object-top pointer-events-none"
+              />
+            </div>
+
+            {/* ── Browser bottom nav bar ── */}
+            <div
+              aria-hidden
+              className="absolute left-0 right-0 pointer-events-none"
+              style={{
+                bottom: '3.8%',
+                height: '8%',
+                background: '#f2f2f7',
+                borderTop: '0.5px solid #c8c8cc',
+                zIndex: 18,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-around',
+                padding: '0 3%',
+              }}
+            >
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#555" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="15 18 9 12 15 6" />
+              </svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#ccc" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="9 18 15 12 9 6" />
+              </svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#555" strokeWidth="2" strokeLinecap="round">
+                <circle cx="12" cy="12" r="10" />
+                <line x1="12" y1="8" x2="12" y2="16" />
+                <line x1="8" y1="12" x2="16" y2="12" />
+              </svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#555" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                <rect x="3" y="7" width="14" height="14" rx="2" />
+                <path d="M7 7V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-2" />
+              </svg>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="#555">
+                <circle cx="5" cy="12" r="1.5" />
+                <circle cx="12" cy="12" r="1.5" />
+                <circle cx="19" cy="12" r="1.5" />
+              </svg>
             </div>
 
             {/* Dynamic Island */}
@@ -126,7 +187,6 @@ function IPhone16ProMax({ src, alt, eager }: { src: string; alt: string; eager: 
                 paddingRight: '12%',
               }}
             >
-              {/* Front camera */}
               <span
                 className="block rounded-full"
                 style={{
@@ -143,7 +203,7 @@ function IPhone16ProMax({ src, alt, eager }: { src: string; alt: string; eager: 
               aria-hidden
               className="absolute left-1/2 -translate-x-1/2 rounded-full pointer-events-none"
               style={{
-                bottom: '1.8%',
+                bottom: '1%',
                 width: '30%',
                 height: '0.55%',
                 background: 'rgba(0,0,0,0.32)',
