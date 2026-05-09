@@ -112,7 +112,7 @@ function PhoneFrame({
             {/* Status bar area — white bg, sits in the top safe zone */}
             <div
               className="absolute left-0 right-0 bg-white"
-              style={{ top: 0, height: '7%', zIndex: 20 }}
+              style={{ top: 0, height: '5.5%', zIndex: 20 }}
             >
               <StatusBar />
             </div>
@@ -122,8 +122,8 @@ function PhoneFrame({
               className="absolute left-0 right-0 bg-white"
               style={
                 inset
-                  ? { top: '7%', bottom: 0, padding: `0 ${inset.x} ${inset.bottom} ${inset.x}` }
-                  : { top: '7%', bottom: 0 }
+                  ? { top: '5.5%', bottom: 0, padding: `0 ${inset.x} ${inset.bottom} ${inset.x}` }
+                  : { top: '5.5%', bottom: 0 }
               }
             >
               <img
