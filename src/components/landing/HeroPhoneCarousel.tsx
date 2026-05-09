@@ -27,6 +27,9 @@ function IPhone16ProMax({ src, alt, eager }: { src: string; alt: string; eager: 
           padding: '3.2%',
           boxShadow:
             'inset 0 0 0 1px rgba(255,255,255,0.04), inset 0 2px 4px rgba(255,255,255,0.06), inset 0 -2px 4px rgba(0,0,0,0.4)',
+          isolation: 'isolate',
+          transform: 'translateZ(0)',
+          WebkitMaskImage: '-webkit-radial-gradient(white, black)',
         }}
       >
         {/* Screen */}
@@ -35,6 +38,9 @@ function IPhone16ProMax({ src, alt, eager }: { src: string; alt: string; eager: 
           style={{
             borderRadius: '9.5% / 4.4%',
             boxShadow: 'inset 0 0 0 1px rgba(255,255,255,0.05)',
+            isolation: 'isolate',
+            transform: 'translateZ(0)',
+            WebkitMaskImage: '-webkit-radial-gradient(white, black)',
           }}
         >
           <img
@@ -145,12 +151,21 @@ export default function HeroPhoneCarousel() {
   const [active, setActive] = useState(0);
   const [paused, setPaused] = useState(false);
   const [reducedMotion, setReducedMotion] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const touchStartX = useRef<number | null>(null);
 
   useEffect(() => {
     const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
     setReducedMotion(mq.matches);
     const handler = (e: MediaQueryListEvent) => setReducedMotion(e.matches);
+    mq.addEventListener('change', handler);
+    return () => mq.removeEventListener('change', handler);
+  }, []);
+
+  useEffect(() => {
+    const mq = window.matchMedia('(max-width: 767px)');
+    setIsMobile(mq.matches);
+    const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
     mq.addEventListener('change', handler);
     return () => mq.removeEventListener('change', handler);
   }, []);
@@ -197,9 +212,9 @@ export default function HeroPhoneCarousel() {
           const isActive = offset === 0;
           const abs = Math.abs(offset);
 
-          const translateX = offset * 60;
+          const translateX = offset * (isMobile ? 52 : 60);
           const rotateY = offset * -10;
-          const scale = isActive ? 1 : 0.80;
+          const scale = isActive ? 1 : isMobile ? 0.68 : 0.80;
           const opacity = abs > 1 ? 0 : isActive ? 1 : 0.52;
           const zIndex = 10 - abs;
 
