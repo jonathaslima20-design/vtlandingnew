@@ -23,8 +23,8 @@ function StatusBar() {
   return (
     <div
       aria-hidden
-      className="absolute left-0 right-0 flex items-center justify-between pointer-events-none"
-      style={{ top: '6.2%', padding: '0 6% 0 6%', height: '4%', zIndex: 20 }}
+      className="w-full h-full flex items-end justify-between pointer-events-none"
+      style={{ padding: '0 8% 10% 8%' }}
     >
       {/* Time */}
       <span style={{ fontSize: '7px', fontWeight: 600, color: '#111', letterSpacing: '0.02em', lineHeight: 1 }}>
@@ -109,13 +109,21 @@ function PhoneFrame({
                 'inset 0 0 0 1px rgba(255,255,255,0.04), inset 0 0 22px rgba(0,0,0,0.9)',
             }}
           >
-            {/* Screen content */}
+            {/* Status bar area — white bg, sits in the top safe zone */}
             <div
-              className="absolute inset-0 bg-white"
+              className="absolute left-0 right-0 bg-white"
+              style={{ top: 0, height: '11%', zIndex: 20 }}
+            >
+              <StatusBar />
+            </div>
+
+            {/* Screen content — starts below status bar */}
+            <div
+              className="absolute left-0 right-0 bg-white"
               style={
                 inset
-                  ? { padding: `${inset.top} ${inset.x} ${inset.bottom} ${inset.x}` }
-                  : { paddingTop: '14%' }
+                  ? { top: '11%', bottom: 0, padding: `0 ${inset.x} ${inset.bottom} ${inset.x}` }
+                  : { top: '11%', bottom: 0 }
               }
             >
               <img
@@ -127,9 +135,6 @@ function PhoneFrame({
                 draggable={false}
               />
             </div>
-
-            {/* Status bar — sits above content */}
-            <StatusBar />
 
             {/* Dynamic island */}
             <div
