@@ -8,7 +8,6 @@ const SLIDES = [
 ];
 
 function IPhone16ProMax({ src, alt, eager }: { src: string; alt: string; eager: boolean }) {
-  // iPhone 16 Pro Max proportions: 393 x 852 logical pixels → ~9/19.5 ratio
   return (
     <div
       className="relative select-none"
@@ -16,262 +15,126 @@ function IPhone16ProMax({ src, alt, eager }: { src: string; alt: string; eager: 
         width: 'clamp(210px, 24vw, 270px)',
         aspectRatio: '393 / 852',
         filter:
-          'drop-shadow(0 60px 80px rgba(0,0,0,0.35)) drop-shadow(0 20px 32px rgba(0,0,0,0.20)) drop-shadow(0 4px 10px rgba(0,0,0,0.14))',
+          'drop-shadow(0 50px 70px rgba(0,0,0,0.30)) drop-shadow(0 16px 28px rgba(0,0,0,0.18)) drop-shadow(0 4px 10px rgba(0,0,0,0.12))',
       }}
     >
-      {/* ── Outer frame: titanium Natural finish ── */}
+      {/* ── Solid black frame ── */}
       <div
-        className="absolute inset-0 overflow-hidden"
+        className="absolute inset-0"
         style={{
-          borderRadius: '13.5% / 6.2%',
-          background:
-            'linear-gradient(145deg, #c8b99a 0%, #a89070 12%, #7a6850 28%, #5a4c38 48%, #6a5a44 62%, #908070 80%, #c0a882 100%)',
-          padding: '2.5%',
+          borderRadius: '14% / 6.4%',
+          background: '#1a1a1a',
+          padding: '3.2%',
+          boxShadow:
+            'inset 0 0 0 1px rgba(255,255,255,0.04), inset 0 2px 4px rgba(255,255,255,0.06), inset 0 -2px 4px rgba(0,0,0,0.4)',
         }}
       >
-        {/* Titanium frame glare */}
+        {/* Screen */}
         <div
-          aria-hidden
-          className="absolute inset-0 pointer-events-none"
+          className="relative w-full h-full overflow-hidden bg-white"
           style={{
-            borderRadius: '13.5% / 6.2%',
-            background:
-              'linear-gradient(110deg, rgba(255,245,225,0.45) 0%, transparent 16%, transparent 70%, rgba(255,245,225,0.22) 88%, transparent 100%)',
-          }}
-        />
-
-        {/* Inner bezel — dark matte */}
-        <div
-          className="relative w-full h-full overflow-hidden"
-          style={{
-            borderRadius: '10% / 5%',
-            background: '#0a0a0c',
-            padding: '1.8%',
+            borderRadius: '9.5% / 4.4%',
+            boxShadow: 'inset 0 0 0 1px rgba(255,255,255,0.05)',
           }}
         >
-          {/* Screen glass */}
+          <img
+            src={src}
+            alt={alt}
+            loading={eager ? 'eager' : 'lazy'}
+            decoding="async"
+            draggable={false}
+            className="absolute inset-0 w-full h-full object-cover object-top pointer-events-none"
+          />
+
+          {/* Dynamic Island */}
           <div
-            className="relative w-full h-full overflow-hidden bg-white"
+            aria-hidden
+            className="absolute left-1/2 -translate-x-1/2 pointer-events-none"
             style={{
-              borderRadius: '7.5% / 3.6%',
-              boxShadow: 'inset 0 0 0 1px rgba(255,255,255,0.06), inset 0 0 28px rgba(0,0,0,0.85)',
+              top: '1.6%',
+              width: '32%',
+              height: '4%',
+              borderRadius: '50px',
+              background: '#000',
+              zIndex: 30,
+              boxShadow: 'inset 0 0 0 1px rgba(40,40,45,0.95)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'flex-end',
+              paddingRight: '10%',
             }}
           >
-            {/* ── Status bar ── */}
-            <div
-              aria-hidden
-              className="absolute left-0 right-0 flex items-center justify-between pointer-events-none"
-              style={{ top: 0, height: '6.5%', background: '#fff', padding: '0 5%', zIndex: 20 }}
-            >
-              <span style={{ fontSize: '7px', fontWeight: 700, color: '#111', letterSpacing: '0.01em', lineHeight: 1 }}>
-                8:59
-              </span>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '3px' }}>
-                <svg width="11" height="8" viewBox="0 0 11 8" fill="none">
-                  <rect x="0" y="4.5" width="2" height="3.5" rx="0.4" fill="#111" />
-                  <rect x="3" y="3" width="2" height="5" rx="0.4" fill="#111" />
-                  <rect x="6" y="1.5" width="2" height="6.5" rx="0.4" fill="#111" />
-                  <rect x="9" y="0" width="2" height="8" rx="0.4" fill="#111" />
-                </svg>
-                <svg width="10" height="8" viewBox="0 0 10 8" fill="none">
-                  <path d="M5 6.2a0.65 0.65 0 1 1 0 .01" stroke="#111" strokeWidth="1.4" strokeLinecap="round" />
-                  <path d="M2.8 4.4Q5 2.8 7.2 4.4" stroke="#111" strokeWidth="1" strokeLinecap="round" fill="none" />
-                  <path d="M1 2.6Q5 0 9 2.6" stroke="#111" strokeWidth="1" strokeLinecap="round" fill="none" />
-                </svg>
-                <svg width="20" height="8" viewBox="0 0 20 8" fill="none">
-                  <rect x="0.5" y="0.5" width="15" height="7" rx="1.5" stroke="#111" strokeWidth="0.8" />
-                  <rect x="1.5" y="1.5" width="12" height="5" rx="0.8" fill="#111" />
-                  <path d="M17 2.8v2.4" stroke="#111" strokeWidth="1.2" strokeLinecap="round" opacity="0.5" />
-                  <text x="3.5" y="6.2" fontSize="4.2" fill="#fff" fontWeight="700" fontFamily="system-ui">96</text>
-                </svg>
-              </div>
-            </div>
-
-            {/* ── Browser address bar (Safari style) ── */}
-            <div
-              aria-hidden
-              className="absolute left-0 right-0 pointer-events-none"
+            <span
+              className="block rounded-full"
               style={{
-                top: '6.5%',
-                height: '6%',
-                background: '#f2f2f7',
-                zIndex: 18,
-                display: 'flex',
-                alignItems: 'center',
-                padding: '0 4%',
-                gap: '3%',
-              }}
-            >
-              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#555" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                <circle cx="12" cy="12" r="10" />
-                <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-              </svg>
-              <div style={{ flex: 1, background: '#e5e5ea', borderRadius: '6px', height: '60%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <span style={{ fontSize: '6px', fontWeight: 500, color: '#111', letterSpacing: '0.01em' }}>vitrineturbo.com</span>
-              </div>
-              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#555" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8" />
-                <polyline points="16 6 12 2 8 6" />
-                <line x1="12" y1="2" x2="12" y2="15" />
-              </svg>
-            </div>
-
-            {/* ── Screen content ── */}
-            <div
-              className="absolute left-0 right-0 overflow-hidden"
-              style={{ top: '12.5%', bottom: '9%', zIndex: 10, contain: 'paint' }}
-            >
-              <img
-                src={src}
-                alt={alt}
-                loading={eager ? 'eager' : 'lazy'}
-                decoding="async"
-                draggable={false}
-                className="w-full h-full object-cover object-top pointer-events-none"
-              />
-            </div>
-
-            {/* ── Browser bottom nav bar ── */}
-            <div
-              aria-hidden
-              className="absolute left-0 right-0 pointer-events-none"
-              style={{
-                bottom: '1%',
-                height: '8%',
-                background: '#f2f2f7',
-                borderTop: '0.5px solid #c8c8cc',
-                zIndex: 18,
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'stretch',
-              }}
-            >
-              <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'space-around', padding: '0 3%' }}>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#555" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <polyline points="15 18 9 12 15 6" />
-                </svg>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#ccc" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <polyline points="9 18 15 12 9 6" />
-                </svg>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#555" strokeWidth="2" strokeLinecap="round">
-                  <circle cx="12" cy="12" r="10" />
-                  <line x1="12" y1="8" x2="12" y2="16" />
-                  <line x1="8" y1="12" x2="16" y2="12" />
-                </svg>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#555" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                  <rect x="3" y="7" width="14" height="14" rx="2" />
-                  <path d="M7 7V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-2" />
-                </svg>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="#555">
-                  <circle cx="5" cy="12" r="1.5" />
-                  <circle cx="12" cy="12" r="1.5" />
-                  <circle cx="19" cy="12" r="1.5" />
-                </svg>
-              </div>
-              <div style={{ display: 'flex', justifyContent: 'center', paddingBottom: '8%' }}>
-                <div style={{ width: '28%', height: '3px', borderRadius: '9999px', background: 'rgba(0,0,0,0.28)' }} />
-              </div>
-            </div>
-
-            {/* Dynamic Island */}
-            <div
-              aria-hidden
-              className="absolute left-1/2 -translate-x-1/2 pointer-events-none"
-              style={{
-                top: '1.8%',
-                width: '34%',
-                height: '4.2%',
-                borderRadius: '50px',
-                background: '#000',
-                zIndex: 30,
-                boxShadow: 'inset 0 0 0 1px rgba(40,40,45,0.95), 0 1px 3px rgba(0,0,0,0.6)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'flex-end',
-                paddingRight: '12%',
-              }}
-            >
-              <span
-                className="block rounded-full"
-                style={{
-                  width: '20%',
-                  height: '55%',
-                  background: 'radial-gradient(circle at 38% 38%, #243040 0%, #08121c 55%, #000 100%)',
-                  boxShadow: 'inset 0 0 0 1px rgba(60,80,110,0.55), inset 0 0 3px rgba(100,160,240,0.2)',
-                }}
-              />
-            </div>
-
-            {/* Screen glare */}
-            <div
-              aria-hidden
-              className="absolute inset-0 pointer-events-none"
-              style={{
-                zIndex: 40,
-                background:
-                  'linear-gradient(130deg, rgba(255,255,255,0.10) 0%, transparent 28%, transparent 72%, rgba(255,255,255,0.06) 100%)',
-                borderRadius: '11.5% / 5.3%',
+                width: '18%',
+                height: '52%',
+                background: 'radial-gradient(circle at 38% 38%, #243040 0%, #08121c 55%, #000 100%)',
+                boxShadow: 'inset 0 0 0 1px rgba(60,80,110,0.55)',
               }}
             />
           </div>
+
+          {/* Screen glare */}
+          <div
+            aria-hidden
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              zIndex: 40,
+              background:
+                'linear-gradient(130deg, rgba(255,255,255,0.10) 0%, transparent 28%, transparent 72%, rgba(255,255,255,0.05) 100%)',
+            }}
+          />
         </div>
       </div>
 
-      {/* ── Side buttons (titanium) ── */}
-      {/* Action button */}
+      {/* ── Side buttons ── */}
       <span
         aria-hidden
         className="absolute"
         style={{
-          left: '-2.5px',
+          left: '-2px',
           top: '14%',
-          width: '3px',
-          height: '4%',
+          width: '2.5px',
+          height: '3.5%',
           borderRadius: '2px 0 0 2px',
-          background: 'linear-gradient(90deg, #9a8870 0%, #c0aa88 50%, #9a8870 100%)',
-          boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.2)',
+          background: '#0f0f0f',
         }}
       />
-      {/* Volume up */}
       <span
         aria-hidden
         className="absolute"
         style={{
-          left: '-2.5px',
-          top: '21.5%',
-          width: '3px',
+          left: '-2px',
+          top: '21%',
+          width: '2.5px',
           height: '7%',
           borderRadius: '2px 0 0 2px',
-          background: 'linear-gradient(90deg, #9a8870 0%, #c0aa88 50%, #9a8870 100%)',
-          boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.2)',
+          background: '#0f0f0f',
         }}
       />
-      {/* Volume down */}
       <span
         aria-hidden
         className="absolute"
         style={{
-          left: '-2.5px',
-          top: '30.5%',
-          width: '3px',
+          left: '-2px',
+          top: '30%',
+          width: '2.5px',
           height: '7%',
           borderRadius: '2px 0 0 2px',
-          background: 'linear-gradient(90deg, #9a8870 0%, #c0aa88 50%, #9a8870 100%)',
-          boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.2)',
+          background: '#0f0f0f',
         }}
       />
-      {/* Power / side button */}
       <span
         aria-hidden
         className="absolute"
         style={{
-          right: '-2.5px',
+          right: '-2px',
           top: '24%',
-          width: '3px',
+          width: '2.5px',
           height: '11%',
           borderRadius: '0 2px 2px 0',
-          background: 'linear-gradient(270deg, #9a8870 0%, #c0aa88 50%, #9a8870 100%)',
-          boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.2)',
+          background: '#0f0f0f',
         }}
       />
     </div>
