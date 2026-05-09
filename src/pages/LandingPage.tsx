@@ -3,14 +3,6 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Plus, Package, MessageCircle, Gift, Instagram, Settings2, Globe as Globe2, ChartBar as BarChart3, Check, Zap, ShoppingBag, TrendingUp, Users, Star, LogIn } from 'lucide-react';
 import LandingSocialProof from '@/components/landing/LandingSocialProof';
 import HeroPhoneCarousel from '@/components/landing/HeroPhoneCarousel';
-import {
-  TshirtIllustration,
-  SneakerIllustration,
-  BallIllustration,
-  RacketIllustration,
-  MouseIllustration,
-  CupcakeIllustration,
-} from '@/components/landing/ProductIllustrations';
 
 function useReveal() {
   useEffect(() => {
@@ -174,26 +166,31 @@ function BentoGrid() {
             Icon={Package}
             className="lg:col-span-2 lg:row-span-2"
           >
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-3">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
               {[
-                { name: 'Camiseta Oversized', price: 'R$ 149', tag: 'Novo', Illustration: TshirtIllustration },
-                { name: 'Tênis Runner', price: 'R$ 389', tag: '-20%', Illustration: SneakerIllustration },
-                { name: 'Bola Oficial', price: 'R$ 219', Illustration: BallIllustration },
-                { name: 'Raquete Pro', price: 'R$ 649', Illustration: RacketIllustration },
-                { name: 'Mouse Gamer', price: 'R$ 279', tag: 'Top', Illustration: MouseIllustration },
-                { name: 'Cupcake Artesanal', price: 'R$ 18', Illustration: CupcakeIllustration },
-              ].map(({ name, price, tag, Illustration }) => (
+                { name: 'Camiseta Mith', price: 'R$ 149', tag: 'Novo', img: '/Camiseta_Oversized_Treino_Preta_Mith.png' },
+                { name: 'Chuteira Mercurial', price: 'R$ 389', tag: '-20%', img: '/Chuteira_Nike_Campo_Mercurial.png' },
+                { name: 'Bola Nike Pitch', price: 'R$ 219', img: '/Bola_de_Futebol_Campo_Nike_Pitch_Tea.png' },
+                { name: 'Creatine 300g', price: 'R$ 129', img: '/Creatine_Pura_Black_Skull_300g.png' },
+                { name: 'Mouse Redragon', price: 'R$ 279', tag: 'Top', img: '/Mouse_Gamer_Redragon_Nix_RGB.png' },
+                { name: 'Cupcake Artesanal', price: 'R$ 18', img: 'https://images.pexels.com/photos/1055270/pexels-photo-1055270.jpeg?auto=compress&cs=tinysrgb&w=600' },
+              ].map(({ name, price, tag, img }) => (
                 <div
                   key={name}
                   className="group relative aspect-square rounded-xl border hairline bg-white p-3 sm:p-2.5 flex flex-col justify-between overflow-hidden transition-all duration-300 hover:shadow-md hover:-translate-y-0.5"
                 >
                   {tag && (
-                    <span className="absolute top-2 right-2 z-10 font-mono-label uppercase text-[9px] sm:text-[8px] tracking-wider px-2 py-0.5 rounded-full bg-ink-900 text-white">
+                    <span className="absolute top-2 right-2 z-10 font-mono-label uppercase text-[9px] sm:text-[8px] tracking-wider px-2 py-0.5 rounded-full bg-ink-900 text-white shadow-sm">
                       {tag}
                     </span>
                   )}
-                  <div className="flex-1 rounded-lg bg-gradient-to-br from-white to-surface overflow-hidden flex items-center justify-center">
-                    <Illustration className="w-[82%] h-[82%] transition-transform duration-500 group-hover:scale-110" />
+                  <div className="flex-1 rounded-lg bg-gradient-to-br from-white via-white to-surface overflow-hidden flex items-center justify-center">
+                    <img
+                      src={img}
+                      alt={name}
+                      loading="lazy"
+                      className="w-[88%] h-[88%] object-contain drop-shadow-sm transition-transform duration-500 group-hover:scale-110"
+                    />
                   </div>
                   <div className="mt-2.5 px-0.5 space-y-0.5">
                     <div className="text-[12px] sm:text-[10px] text-ink-500 truncate leading-tight">{name}</div>
