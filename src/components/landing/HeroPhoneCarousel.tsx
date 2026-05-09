@@ -21,12 +21,12 @@ function IPhone16ProMax({ src, alt, eager }: { src: string; alt: string; eager: 
     >
       {/* ── Outer frame: titanium Natural finish ── */}
       <div
-        className="absolute inset-0"
+        className="absolute inset-0 overflow-hidden"
         style={{
           borderRadius: '13.5% / 6.2%',
           background:
             'linear-gradient(145deg, #c8b99a 0%, #a89070 12%, #7a6850 28%, #5a4c38 48%, #6a5a44 62%, #908070 80%, #c0a882 100%)',
-          padding: '2px',
+          padding: '1%',
         }}
       >
         {/* Titanium frame glare */}
@@ -44,9 +44,9 @@ function IPhone16ProMax({ src, alt, eager }: { src: string; alt: string; eager: 
         <div
           className="relative w-full h-full overflow-hidden"
           style={{
-            borderRadius: '12.8% / 5.9%',
+            borderRadius: '12.5% / 5.8%',
             background: 'linear-gradient(170deg, #1c1c1e 0%, #0a0a0c 55%, #1a1a1c 100%)',
-            padding: '3.5px',
+            padding: '1.2%',
           }}
         >
           {/* Screen glass */}
@@ -119,7 +119,7 @@ function IPhone16ProMax({ src, alt, eager }: { src: string; alt: string; eager: 
             {/* ── Screen content ── */}
             <div
               className="absolute left-0 right-0 overflow-hidden"
-              style={{ top: '12.5%', bottom: '9%', zIndex: 10 }}
+              style={{ top: '12.5%', bottom: '9%', zIndex: 10, contain: 'paint' }}
             >
               <img
                 src={src}
