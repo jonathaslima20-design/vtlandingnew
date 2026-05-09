@@ -23,8 +23,8 @@ function StatusBar() {
   return (
     <div
       aria-hidden
-      className="w-full h-full flex items-end justify-between pointer-events-none"
-      style={{ padding: '0 8% 10% 8%' }}
+      className="w-full h-full flex items-center justify-between pointer-events-none"
+      style={{ padding: '0 6% 0 6%' }}
     >
       {/* Time */}
       <span style={{ fontSize: '7px', fontWeight: 600, color: '#111', letterSpacing: '0.02em', lineHeight: 1 }}>
@@ -112,7 +112,7 @@ function PhoneFrame({
             {/* Status bar area — white bg, sits in the top safe zone */}
             <div
               className="absolute left-0 right-0 bg-white"
-              style={{ top: 0, height: '11%', zIndex: 20 }}
+              style={{ top: 0, height: '7%', zIndex: 20 }}
             >
               <StatusBar />
             </div>
@@ -122,8 +122,8 @@ function PhoneFrame({
               className="absolute left-0 right-0 bg-white"
               style={
                 inset
-                  ? { top: '11%', bottom: 0, padding: `0 ${inset.x} ${inset.bottom} ${inset.x}` }
-                  : { top: '11%', bottom: 0 }
+                  ? { top: '7%', bottom: 0, padding: `0 ${inset.x} ${inset.bottom} ${inset.x}` }
+                  : { top: '7%', bottom: 0 }
               }
             >
               <img
