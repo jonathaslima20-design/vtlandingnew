@@ -451,7 +451,7 @@ function SocialProofSection() {
   return (
     <section id="prova-social" className="py-24 lg:py-32 bg-white border-t hairline">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
-        <SectionHeading kicker="/ prova social" title="Junte-se a milhares de usuários do VitrineTurbo" />
+        <SectionHeading kicker="/ nossos usuários" title="Junte-se a milhares de usuários do VitrineTurbo" />
         <LandingSocialProof />
       </div>
     </section>
