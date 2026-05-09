@@ -3,6 +3,89 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Plus, Package, MessageCircle, Gift, Instagram, Settings2, Globe as Globe2, ChartBar as BarChart3, Check, Zap, ShoppingBag, TrendingUp, Users, Star, LogIn, ShoppingCart, Radio } from 'lucide-react';
 import LandingSocialProof from '@/components/landing/LandingSocialProof';
 import HeroPhoneCarousel from '@/components/landing/HeroPhoneCarousel';
+import { supabase } from '@/lib/supabase';
+
+function useLandingTracking() {
+  useEffect(() => {
+    let metaScript: HTMLScriptElement | null = null;
+    let metaNoScript: HTMLElement | null = null;
+    let gtmScript: HTMLScriptElement | null = null;
+    let gtmNoScript: HTMLElement | null = null;
+    let gtmDataLayer: HTMLScriptElement | null = null;
+
+    (async () => {
+      const { data } = await supabase
+        .from('landing_tracking_config')
+        .select('meta_pixel_id, google_tag_id')
+        .maybeSingle();
+
+      if (!data) return;
+
+      // ── Meta Pixel ──────────────────────────────────────────────
+      const pixelId = data.meta_pixel_id?.trim();
+      if (pixelId) {
+        metaScript = document.createElement('script');
+        metaScript.id = 'meta-pixel-script';
+        metaScript.innerHTML = `
+          !function(f,b,e,v,n,t,s){
+            if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+            n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)}(window,document,'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+          fbq('init','${pixelId}');fbq('track','PageView');
+        `;
+        document.head.appendChild(metaScript);
+
+        metaNoScript = document.createElement('noscript');
+        metaNoScript.id = 'meta-pixel-noscript';
+        metaNoScript.innerHTML = `<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=${pixelId}&ev=PageView&noscript=1"/>`;
+        document.body.insertBefore(metaNoScript, document.body.firstChild);
+      }
+
+      // ── Google Tag (GTM or GA4) ──────────────────────────────────
+      const tagId = data.google_tag_id?.trim();
+      if (tagId) {
+        if (tagId.startsWith('GTM-')) {
+          // Google Tag Manager
+          gtmDataLayer = document.createElement('script');
+          gtmDataLayer.id = 'gtm-datalayer';
+          gtmDataLayer.innerHTML = `window.dataLayer=window.dataLayer||[];window.dataLayer.push({'gtm.start':new Date().getTime(),event:'gtm.js'});`;
+          document.head.appendChild(gtmDataLayer);
+
+          gtmScript = document.createElement('script');
+          gtmScript.id = 'gtm-script';
+          gtmScript.async = true;
+          gtmScript.src = `https://www.googletagmanager.com/gtm.js?id=${tagId}`;
+          document.head.appendChild(gtmScript);
+
+          gtmNoScript = document.createElement('noscript');
+          gtmNoScript.id = 'gtm-noscript';
+          gtmNoScript.innerHTML = `<iframe src="https://www.googletagmanager.com/ns.html?id=${tagId}" height="0" width="0" style="display:none;visibility:hidden"></iframe>`;
+          document.body.insertBefore(gtmNoScript, document.body.firstChild);
+        } else {
+          // GA4 / gtag.js
+          gtmScript = document.createElement('script');
+          gtmScript.id = 'ga4-script';
+          gtmScript.async = true;
+          gtmScript.src = `https://www.googletagmanager.com/gtag/js?id=${tagId}`;
+          document.head.appendChild(gtmScript);
+
+          gtmDataLayer = document.createElement('script');
+          gtmDataLayer.id = 'ga4-config';
+          gtmDataLayer.innerHTML = `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${tagId}');`;
+          document.head.appendChild(gtmDataLayer);
+        }
+      }
+    })();
+
+    return () => {
+      [metaScript, metaNoScript, gtmScript, gtmNoScript, gtmDataLayer].forEach((el) => el?.remove());
+    };
+  }, []);
+}
 
 function useReveal() {
   useEffect(() => {
@@ -558,6 +641,7 @@ function FooterLanding() {
 
 export default function LandingPage() {
   useReveal();
+  useLandingTracking();
   return (
     <div className="vt-root min-h-screen bg-white text-ink-900">
       <Header />
