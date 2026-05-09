@@ -2,9 +2,9 @@ import { useEffect, useRef, useState } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const SLIDES = [
-  { src: '/mockup-1.png', label: 'Vitrine personalizada' },
-  { src: '/mockup-2.png', label: 'Catálogo de produtos' },
-  { src: '/mockup-3.png', label: 'Detalhes do produto' },
+  { src: '/screen-1.png', label: 'Vitrine personalizada' },
+  { src: '/screen-2.png', label: 'Catálogo de produtos' },
+  { src: '/screen-3.png', label: 'Detalhes do produto' },
 ];
 
 function IPhone16ProMax({ src, alt, eager }: { src: string; alt: string; eager: boolean }) {
