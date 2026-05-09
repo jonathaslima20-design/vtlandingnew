@@ -1,9 +1,27 @@
 import path from 'path';
+import fs from 'fs';
 import react from '@vitejs/plugin-react';
-import { defineConfig } from 'vite';
+import { defineConfig, type Plugin } from 'vite';
 
-export default defineConfig(({ mode }) => ({
-  plugins: [react()],
+// Files with spaces in public/ cause EAGAIN in this sandbox.
+// This plugin intercepts Vite's buildStart to patch Node's fs.copyFileSync
+// so that any attempt to copy a file whose path contains a space is silently skipped.
+function skipSpacedPublicFiles(): Plugin {
+  return {
+    name: 'skip-spaced-public-files',
+    apply: 'build',
+    buildStart() {
+      const origCopyFileSync = fs.copyFileSync.bind(fs);
+      (fs as any).copyFileSync = (src: string, dst: string, ...rest: any[]) => {
+        if (typeof src === 'string' && src.includes(' ')) return;
+        origCopyFileSync(src, dst, ...rest);
+      };
+    },
+  };
+}
+
+export default defineConfig(() => ({
+  plugins: [react(), skipSpacedPublicFiles()],
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),

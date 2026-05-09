@@ -1,227 +1,226 @@
 import { useEffect, useRef, useState } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
-const SLIDES: {
-  src: string;
-  label: string;
-  inset?: { x: string; top: string; bottom: string };
-}[] = [
+const SLIDES = [
   { src: '/mockup-1.png', label: 'Vitrine personalizada' },
-  {
-    src: '/mockup-2.png',
-    label: 'Catálogo de produtos',
-    inset: { x: '5%', top: '15%', bottom: '4%' },
-  },
-  {
-    src: '/mockup-3.png',
-    label: 'Detalhes do produto',
-    inset: { x: '5%', top: '15%', bottom: '4%' },
-  },
+  { src: '/mockup-2.png', label: 'Catálogo de produtos' },
+  { src: '/mockup-3.png', label: 'Detalhes do produto' },
 ];
 
-function StatusBar() {
+function IPhone16ProMax({ src, alt, eager }: { src: string; alt: string; eager: boolean }) {
+  // iPhone 16 Pro Max proportions: 393 x 852 logical pixels → ~9/19.5 ratio
   return (
     <div
-      aria-hidden
-      className="w-full h-full flex items-center justify-between pointer-events-none"
-      style={{ padding: '0 6% 0 6%' }}
-    >
-      {/* Time */}
-      <span style={{ fontSize: '7px', fontWeight: 600, color: '#111', letterSpacing: '0.02em', lineHeight: 1 }}>
-        9:41
-      </span>
-      {/* Icons */}
-      <div style={{ display: 'flex', alignItems: 'center', gap: '3px' }}>
-        {/* Signal bars */}
-        <svg width="10" height="7" viewBox="0 0 10 7" fill="none">
-          <rect x="0" y="4" width="2" height="3" rx="0.4" fill="#111" />
-          <rect x="2.7" y="2.5" width="2" height="4.5" rx="0.4" fill="#111" />
-          <rect x="5.4" y="1" width="2" height="6" rx="0.4" fill="#111" />
-          <rect x="8.1" y="0" width="2" height="7" rx="0.4" fill="#111" opacity="0.25" />
-        </svg>
-        {/* Wifi */}
-        <svg width="9" height="7" viewBox="0 0 9 7" fill="none">
-          <path d="M4.5 5.5 a0.5 0.5 0 1 1 0 .01" stroke="#111" strokeWidth="1.2" strokeLinecap="round" />
-          <path d="M2.8 4.0 Q4.5 2.8 6.2 4.0" stroke="#111" strokeWidth="0.9" strokeLinecap="round" fill="none" />
-          <path d="M1.2 2.6 Q4.5 0.4 7.8 2.6" stroke="#111" strokeWidth="0.9" strokeLinecap="round" fill="none" opacity="0.45" />
-        </svg>
-        {/* Battery */}
-        <svg width="14" height="7" viewBox="0 0 14 7" fill="none">
-          <rect x="0.5" y="0.5" width="11" height="6" rx="1.2" stroke="#111" strokeWidth="0.8" />
-          <rect x="1.5" y="1.5" width="8" height="4" rx="0.6" fill="#111" />
-          <path d="M12 2.2 v2.6" stroke="#111" strokeWidth="1" strokeLinecap="round" opacity="0.5" />
-        </svg>
-      </div>
-    </div>
-  );
-}
-
-function PhoneFrame({
-  src,
-  alt,
-  eager,
-  inset,
-}: {
-  src: string;
-  alt: string;
-  eager: boolean;
-  inset?: { x: string; top: string; bottom: string };
-}) {
-  return (
-    <div
-      className="relative mx-auto"
+      className="relative select-none"
       style={{
-        width: 'clamp(220px, 26vw, 280px)',
-        aspectRatio: '9 / 19.5',
+        width: 'clamp(210px, 24vw, 270px)',
+        aspectRatio: '393 / 852',
         filter:
-          'drop-shadow(0 50px 70px rgba(10,10,10,0.30)) drop-shadow(0 16px 28px rgba(10,10,10,0.18)) drop-shadow(0 4px 10px rgba(10,10,10,0.12))',
+          'drop-shadow(0 60px 80px rgba(0,0,0,0.35)) drop-shadow(0 20px 32px rgba(0,0,0,0.20)) drop-shadow(0 4px 10px rgba(0,0,0,0.14))',
       }}
     >
+      {/* ── Outer frame: titanium Natural finish ── */}
       <div
-        className="absolute inset-0 rounded-[18%/8.2%]"
+        className="absolute inset-0"
         style={{
+          borderRadius: '13.5% / 6.2%',
           background:
-            'linear-gradient(135deg, #8a8a8e 0%, #5c5c60 8%, #3a3a3d 22%, #232326 45%, #2d2d30 62%, #4a4a4d 82%, #6f6f73 100%)',
-          padding: '2.5px',
+            'linear-gradient(145deg, #c8b99a 0%, #a89070 12%, #7a6850 28%, #5a4c38 48%, #6a5a44 62%, #908070 80%, #c0a882 100%)',
+          padding: '2px',
         }}
       >
+        {/* Titanium frame glare */}
         <div
           aria-hidden
-          className="absolute inset-0 rounded-[18%/8.2%] pointer-events-none"
+          className="absolute inset-0 pointer-events-none"
           style={{
+            borderRadius: '13.5% / 6.2%',
             background:
-              'linear-gradient(115deg, rgba(255,255,255,0.35) 0%, rgba(255,255,255,0) 18%, rgba(255,255,255,0) 72%, rgba(255,255,255,0.18) 92%, rgba(255,255,255,0) 100%)',
-            mixBlendMode: 'overlay',
+              'linear-gradient(110deg, rgba(255,245,225,0.45) 0%, transparent 16%, transparent 70%, rgba(255,245,225,0.22) 88%, transparent 100%)',
           }}
         />
+
+        {/* Inner bezel — dark matte */}
         <div
-          className="relative w-full h-full rounded-[17%/7.7%] overflow-hidden"
+          className="relative w-full h-full overflow-hidden"
           style={{
-            background:
-              'linear-gradient(160deg, #2c2c2f 0%, #0d0d0f 50%, #202024 100%)',
-            padding: '4px',
+            borderRadius: '12.8% / 5.9%',
+            background: 'linear-gradient(170deg, #1c1c1e 0%, #0a0a0c 55%, #1a1a1c 100%)',
+            padding: '3.5px',
           }}
         >
+          {/* Screen glass */}
           <div
-            className="relative w-full h-full rounded-[15.5%/7%] overflow-hidden bg-white"
+            className="relative w-full h-full overflow-hidden bg-white"
             style={{
-              boxShadow:
-                'inset 0 0 0 1px rgba(255,255,255,0.04), inset 0 0 22px rgba(0,0,0,0.9)',
+              borderRadius: '11.5% / 5.3%',
+              boxShadow: 'inset 0 0 0 1px rgba(255,255,255,0.06), inset 0 0 28px rgba(0,0,0,0.85)',
             }}
           >
-            {/* Status bar area — white bg, sits in the top safe zone */}
-            <div
-              className="absolute left-0 right-0 bg-white"
-              style={{ top: 0, height: '2%', zIndex: 20 }}
-            >
-              <StatusBar />
-            </div>
+            {/* Screen content — full bleed from top */}
+            <img
+              src={src}
+              alt={alt}
+              loading={eager ? 'eager' : 'lazy'}
+              decoding="async"
+              draggable={false}
+              className="absolute inset-0 w-full h-full object-cover object-top pointer-events-none"
+            />
 
-            {/* Screen content — starts below status bar */}
+            {/* Status bar overlay — subtle gradient so text reads on any content */}
             <div
-              className="absolute left-0 right-0 bg-white"
-              style={
-                inset
-                  ? { top: '2%', bottom: 0, padding: `0 ${inset.x} ${inset.bottom} ${inset.x}` }
-                  : { top: '2%', bottom: 0 }
-              }
-            >
-              <img
-                src={src}
-                alt={alt}
-                loading={eager ? 'eager' : 'lazy'}
-                decoding="async"
-                className={`w-full h-full ${inset ? 'object-contain' : 'object-cover'} object-top select-none pointer-events-none`}
-                draggable={false}
-              />
-            </div>
-
-            {/* Dynamic island */}
-            <div
-              className="absolute left-1/2 -translate-x-1/2 rounded-full bg-black flex items-center justify-end pr-[6%]"
+              aria-hidden
+              className="absolute left-0 right-0 pointer-events-none"
               style={{
-                top: '1.4%',
-                width: '32%',
-                height: '3.6%',
+                top: 0,
+                height: '7%',
+                background: 'linear-gradient(to bottom, rgba(255,255,255,0.72) 0%, rgba(255,255,255,0) 100%)',
+                zIndex: 15,
+              }}
+            />
+
+            {/* Status bar text + icons */}
+            <div
+              aria-hidden
+              className="absolute left-0 right-0 flex items-center justify-between pointer-events-none"
+              style={{ top: '1.2%', height: '4%', padding: '0 6%', zIndex: 20 }}
+            >
+              <span style={{ fontSize: '7px', fontWeight: 700, color: '#111', letterSpacing: '0.01em', lineHeight: 1 }}>
+                9:41
+              </span>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '3px' }}>
+                <svg width="11" height="8" viewBox="0 0 11 8" fill="none">
+                  <rect x="0" y="4.5" width="2" height="3.5" rx="0.4" fill="#111" />
+                  <rect x="3" y="3" width="2" height="5" rx="0.4" fill="#111" />
+                  <rect x="6" y="1.5" width="2" height="6.5" rx="0.4" fill="#111" />
+                  <rect x="9" y="0" width="2" height="8" rx="0.4" fill="#111" opacity="0.3" />
+                </svg>
+                <svg width="10" height="8" viewBox="0 0 10 8" fill="none">
+                  <path d="M5 6a0.6 0.6 0 1 1 0 .01" stroke="#111" strokeWidth="1.4" strokeLinecap="round" />
+                  <path d="M3 4.4Q5 3 7 4.4" stroke="#111" strokeWidth="1" strokeLinecap="round" fill="none" />
+                  <path d="M1.2 2.8Q5 0.2 8.8 2.8" stroke="#111" strokeWidth="1" strokeLinecap="round" fill="none" opacity="0.4" />
+                </svg>
+                <svg width="16" height="8" viewBox="0 0 16 8" fill="none">
+                  <rect x="0.5" y="0.5" width="12.5" height="7" rx="1.5" stroke="#111" strokeWidth="0.8" />
+                  <rect x="1.5" y="1.5" width="9.5" height="5" rx="0.8" fill="#111" />
+                  <path d="M14 2.6v2.8" stroke="#111" strokeWidth="1.1" strokeLinecap="round" opacity="0.5" />
+                </svg>
+              </div>
+            </div>
+
+            {/* Dynamic Island */}
+            <div
+              aria-hidden
+              className="absolute left-1/2 -translate-x-1/2 pointer-events-none"
+              style={{
+                top: '1.8%',
+                width: '34%',
+                height: '4.2%',
+                borderRadius: '50px',
+                background: '#000',
                 zIndex: 30,
-                boxShadow:
-                  'inset 0 0 0 1px rgba(30,30,32,0.9), 0 1px 2px rgba(0,0,0,0.5)',
+                boxShadow: 'inset 0 0 0 1px rgba(40,40,45,0.95), 0 1px 3px rgba(0,0,0,0.6)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'flex-end',
+                paddingRight: '12%',
               }}
             >
+              {/* Front camera */}
               <span
-                aria-hidden
                 className="block rounded-full"
                 style={{
-                  width: '22%',
+                  width: '20%',
                   height: '55%',
-                  background:
-                    'radial-gradient(circle at 35% 35%, #2a3340 0%, #0a1018 55%, #000 100%)',
-                  boxShadow:
-                    'inset 0 0 0 1px rgba(60,70,90,0.6), inset 0 0 2px rgba(120,160,220,0.25)',
+                  background: 'radial-gradient(circle at 38% 38%, #243040 0%, #08121c 55%, #000 100%)',
+                  boxShadow: 'inset 0 0 0 1px rgba(60,80,110,0.55), inset 0 0 3px rgba(100,160,240,0.2)',
                 }}
               />
             </div>
 
+            {/* Home indicator */}
+            <div
+              aria-hidden
+              className="absolute left-1/2 -translate-x-1/2 rounded-full pointer-events-none"
+              style={{
+                bottom: '1.8%',
+                width: '30%',
+                height: '0.55%',
+                background: 'rgba(0,0,0,0.32)',
+                zIndex: 25,
+              }}
+            />
+
             {/* Screen glare */}
             <div
+              aria-hidden
               className="absolute inset-0 pointer-events-none"
               style={{
                 zIndex: 40,
                 background:
-                  'linear-gradient(125deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0) 26%, rgba(255,255,255,0) 74%, rgba(255,255,255,0.07) 100%)',
+                  'linear-gradient(130deg, rgba(255,255,255,0.10) 0%, transparent 28%, transparent 72%, rgba(255,255,255,0.06) 100%)',
+                borderRadius: '11.5% / 5.3%',
               }}
             />
           </div>
         </div>
       </div>
 
-      {/* Side buttons */}
+      {/* ── Side buttons (titanium) ── */}
+      {/* Action button */}
       <span
         aria-hidden
-        className="absolute rounded-r-[2px]"
+        className="absolute"
         style={{
-          left: '-2px',
-          top: '15.5%',
+          left: '-2.5px',
+          top: '14%',
           width: '3px',
-          height: '4.5%',
-          background: 'linear-gradient(90deg, #2a2a2d 0%, #4a4a4d 60%, #2a2a2d 100%)',
-          boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.15)',
+          height: '4%',
+          borderRadius: '2px 0 0 2px',
+          background: 'linear-gradient(90deg, #9a8870 0%, #c0aa88 50%, #9a8870 100%)',
+          boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.2)',
         }}
       />
+      {/* Volume up */}
       <span
         aria-hidden
-        className="absolute rounded-r-[2px]"
+        className="absolute"
         style={{
-          left: '-2px',
-          top: '23%',
+          left: '-2.5px',
+          top: '21.5%',
           width: '3px',
-          height: '7.5%',
-          background: 'linear-gradient(90deg, #2a2a2d 0%, #4a4a4d 60%, #2a2a2d 100%)',
-          boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.15)',
+          height: '7%',
+          borderRadius: '2px 0 0 2px',
+          background: 'linear-gradient(90deg, #9a8870 0%, #c0aa88 50%, #9a8870 100%)',
+          boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.2)',
         }}
       />
+      {/* Volume down */}
       <span
         aria-hidden
-        className="absolute rounded-r-[2px]"
+        className="absolute"
         style={{
-          left: '-2px',
-          top: '32%',
+          left: '-2.5px',
+          top: '30.5%',
           width: '3px',
-          height: '7.5%',
-          background: 'linear-gradient(90deg, #2a2a2d 0%, #4a4a4d 60%, #2a2a2d 100%)',
-          boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.15)',
+          height: '7%',
+          borderRadius: '2px 0 0 2px',
+          background: 'linear-gradient(90deg, #9a8870 0%, #c0aa88 50%, #9a8870 100%)',
+          boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.2)',
         }}
       />
+      {/* Power / side button */}
       <span
         aria-hidden
-        className="absolute rounded-l-[2px]"
+        className="absolute"
         style={{
-          right: '-2px',
-          top: '25%',
+          right: '-2.5px',
+          top: '24%',
           width: '3px',
           height: '11%',
-          background: 'linear-gradient(270deg, #2a2a2d 0%, #4a4a4d 60%, #2a2a2d 100%)',
-          boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.15)',
+          borderRadius: '0 2px 2px 0',
+          background: 'linear-gradient(270deg, #9a8870 0%, #c0aa88 50%, #9a8870 100%)',
+          boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.2)',
         }}
       />
     </div>
@@ -250,13 +249,9 @@ export default function HeroPhoneCarousel() {
     return () => window.clearInterval(id);
   }, [paused, reducedMotion]);
 
-  const go = (dir: 1 | -1) => {
-    setActive((i) => (i + dir + SLIDES.length) % SLIDES.length);
-  };
+  const go = (dir: 1 | -1) => setActive((i) => (i + dir + SLIDES.length) % SLIDES.length);
 
-  const onTouchStart = (e: React.TouchEvent) => {
-    touchStartX.current = e.touches[0].clientX;
-  };
+  const onTouchStart = (e: React.TouchEvent) => { touchStartX.current = e.touches[0].clientX; };
   const onTouchEnd = (e: React.TouchEvent) => {
     if (touchStartX.current == null) return;
     const delta = e.changedTouches[0].clientX - touchStartX.current;
@@ -277,10 +272,7 @@ export default function HeroPhoneCarousel() {
     >
       <div
         className="relative flex items-center justify-center"
-        style={{
-          perspective: '1400px',
-          height: 'clamp(480px, 62vw, 620px)',
-        }}
+        style={{ perspective: '1400px', height: 'clamp(480px, 62vw, 620px)' }}
       >
         {SLIDES.map((slide, i) => {
           const total = SLIDES.length;
@@ -290,18 +282,17 @@ export default function HeroPhoneCarousel() {
 
           const isActive = offset === 0;
           const abs = Math.abs(offset);
-          const hideOnMobile = !isActive;
 
-          const translateX = offset * 62;
+          const translateX = offset * 60;
           const rotateY = offset * -10;
-          const scale = isActive ? 1 : 0.82;
-          const opacity = abs > 1 ? 0 : isActive ? 1 : 0.55;
+          const scale = isActive ? 1 : 0.80;
+          const opacity = abs > 1 ? 0 : isActive ? 1 : 0.52;
           const zIndex = 10 - abs;
 
           return (
             <div
               key={slide.src}
-              className={`absolute top-1/2 left-1/2 ${hideOnMobile ? 'hidden md:block' : ''}`}
+              className={`absolute top-1/2 left-1/2 ${!isActive ? 'hidden md:block' : ''}`}
               aria-hidden={!isActive}
               style={{
                 transform: `translate(-50%, -50%) translateX(${translateX}%) rotateY(${rotateY}deg) scale(${scale})`,
@@ -313,7 +304,7 @@ export default function HeroPhoneCarousel() {
                 pointerEvents: isActive ? 'auto' : 'none',
               }}
             >
-              <PhoneFrame src={slide.src} alt={slide.label} eager={isActive} inset={slide.inset} />
+              <IPhone16ProMax src={slide.src} alt={slide.label} eager={isActive} />
             </div>
           );
         })}
@@ -323,7 +314,7 @@ export default function HeroPhoneCarousel() {
         type="button"
         aria-label="Mockup anterior"
         onClick={() => go(-1)}
-        className="hidden md:inline-flex absolute left-0 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/90 hairline border items-center justify-center text-ink-700 hover:text-ink-900 hover:bg-white transition-colors shadow-sm"
+        className="hidden md:inline-flex absolute left-0 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/90 border items-center justify-center hover:bg-white transition-colors shadow-sm"
       >
         <ChevronLeft size={20} />
       </button>
@@ -331,7 +322,7 @@ export default function HeroPhoneCarousel() {
         type="button"
         aria-label="Próximo mockup"
         onClick={() => go(1)}
-        className="hidden md:inline-flex absolute right-0 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/90 hairline border items-center justify-center text-ink-700 hover:text-ink-900 hover:bg-white transition-colors shadow-sm"
+        className="hidden md:inline-flex absolute right-0 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/90 border items-center justify-center hover:bg-white transition-colors shadow-sm"
       >
         <ChevronRight size={20} />
       </button>
@@ -355,5 +346,3 @@ export default function HeroPhoneCarousel() {
     </div>
   );
 }
-
-
