@@ -173,11 +173,11 @@ function BentoGrid() {
                 { name: 'Bola Nike Pitch', price: 'R$ 219', img: '/Bola_de_Futebol_Campo_Nike_Pitch_Tea.png' },
                 { name: 'Creatine 300g', price: 'R$ 129', img: '/Creatine_Pura_Black_Skull_300g.png' },
                 { name: 'Mouse Redragon', price: 'R$ 279', tag: 'Top', img: '/Mouse_Gamer_Redragon_Nix_RGB.png' },
-                { name: 'Cupcake Artesanal', price: 'R$ 18', img: 'https://images.pexels.com/photos/1055270/pexels-photo-1055270.jpeg?auto=compress&cs=tinysrgb&w=600' },
+                { name: 'Raquete Shark Elite', price: 'R$ 649', img: '/Raquete_Beach_Tennis_Shark_Elite.png' },
               ].map(({ name, price, tag, img }) => (
                 <div
                   key={name}
-                  className="group relative aspect-square rounded-xl border hairline bg-white p-3 sm:p-2.5 flex flex-col justify-between overflow-hidden transition-all duration-300 hover:shadow-md hover:-translate-y-0.5"
+                  className="group relative aspect-[3/4] sm:aspect-square rounded-xl border hairline bg-white p-3 sm:p-2.5 flex flex-col justify-between overflow-hidden transition-all duration-300 hover:shadow-md hover:-translate-y-0.5"
                 >
                   {tag && (
                     <span className="absolute top-2 right-2 z-10 font-mono-label uppercase text-[9px] sm:text-[8px] tracking-wider px-2 py-0.5 rounded-full bg-ink-900 text-white shadow-sm">
