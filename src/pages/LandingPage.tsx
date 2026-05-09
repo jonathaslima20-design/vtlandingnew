@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Plus, Package, MessageCircle, Gift, Instagram, Settings2, Globe as Globe2, ChartBar as BarChart3, Check, Zap, ShoppingBag, TrendingUp, Users, Star, LogIn, ShoppingCart } from 'lucide-react';
+import { ArrowRight, Plus, Package, MessageCircle, Gift, Instagram, Settings2, Globe as Globe2, ChartBar as BarChart3, Check, Zap, ShoppingBag, TrendingUp, Users, Star, LogIn, ShoppingCart, Radio } from 'lucide-react';
 import LandingSocialProof from '@/components/landing/LandingSocialProof';
 import HeroPhoneCarousel from '@/components/landing/HeroPhoneCarousel';
 
@@ -254,23 +254,28 @@ function BentoGrid() {
             </div>
           </BentoCard>
 
-          <BentoCard idx="05" title="Sistema Gerenciável" Icon={Settings2}>
+          <BentoCard idx="05" title="Pixel Meta & Google Tag" Icon={Radio}>
             <div className="space-y-3">
               {[
-                { l: 'Estoque', v: 85 },
-                { l: 'Pedidos', v: 62 },
-                { l: 'Clientes', v: 94 },
-              ].map((row) => (
-                <div key={row.l}>
-                  <div className="flex items-center justify-between mb-1.5">
-                    <span className="font-mono-label uppercase text-[10px] text-ink-500">{row.l}</span>
-                    <span className="font-mono-label text-[10px] text-ink-900">{row.v}%</span>
+                { platform: 'Meta Pixel', label: 'Facebook & Instagram Ads', color: 'bg-blue-500', dot: 'bg-blue-500' },
+                { platform: 'Google Tag', label: 'Google Ads & Analytics', color: 'bg-red-500', dot: 'bg-red-500' },
+              ].map((item) => (
+                <div key={item.platform} className="rounded-xl border hairline bg-white px-3 py-3 flex items-center gap-3">
+                  <div className={`w-2 h-2 rounded-full flex-shrink-0 ${item.dot}`} />
+                  <div className="flex-1 min-w-0">
+                    <div className="text-[12px] font-semibold text-ink-900">{item.platform}</div>
+                    <div className="text-[10px] text-ink-400">{item.label}</div>
                   </div>
-                  <div className="h-1.5 w-full bg-white rounded-full overflow-hidden border hairline">
-                    <div className="h-full bg-ink-900 rounded-full" style={{ width: `${row.v}%` }} />
+                  <div className="flex items-center gap-1">
+                    <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                    <span className="font-mono-label uppercase text-[9px] text-emerald-600">Ativo</span>
                   </div>
                 </div>
               ))}
+              <div className="rounded-xl border hairline bg-ink-50 px-3 py-2 flex items-center gap-2">
+                <Zap size={11} className="text-ink-400 flex-shrink-0" />
+                <span className="text-[10px] text-ink-500">Rastreie conversões em tempo real</span>
+              </div>
             </div>
           </BentoCard>
 
