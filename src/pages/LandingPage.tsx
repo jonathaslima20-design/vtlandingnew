@@ -296,10 +296,10 @@ function BentoGrid() {
 
 function AnalyticsSection() {
   const metrics = [
-    { Icon: TrendingUp, l: 'Conversão', v: '+24,8%' },
-    { Icon: ShoppingBag, l: 'Ticket médio', v: 'R$ 189' },
-    { Icon: Users, l: 'Novos clientes', v: '+1.204' },
-    { Icon: Star, l: 'Retorno', v: '38%' },
+    { Icon: Package, l: 'Total de Produtos', v: '1.847' },
+    { Icon: BarChart3, l: 'Visualizações', v: '+58,3k' },
+    { Icon: Users, l: 'Visitantes', v: '+12.490' },
+    { Icon: TrendingUp, l: 'Conversões', v: '+3,7%' },
   ];
   return (
     <section id="analytics" className="py-24 lg:py-32 bg-surface border-t hairline">
