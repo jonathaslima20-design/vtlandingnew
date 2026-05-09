@@ -201,13 +201,13 @@ function BentoGrid() {
             </div>
           </BentoCard>
 
-          <BentoCard idx="02" title="WhatsApp e Vendas" Icon={MessageCircle}>
+          <BentoCard idx="02" title="WhatsApp Integrado" Icon={MessageCircle}>
             <div className="space-y-2">
-              <div className="max-w-[80%] bg-surface rounded-2xl rounded-bl-sm px-3 py-2 text-[12px] text-ink-900">
-                Olá! Tenho interesse no produto.
+              <div className="max-w-[85%] bg-surface rounded-2xl rounded-bl-sm px-3 py-2 text-[12px] text-ink-900 leading-snug">
+                Olá, gostaria de mais informações sobre o produto Camiseta Reserva Orleans Masculina.
               </div>
-              <div className="max-w-[80%] ml-auto bg-ink-900 text-white rounded-2xl rounded-br-sm px-3 py-2 text-[12px]">
-                Temos em estoque. Envio hoje mesmo.
+              <div className="max-w-[85%] ml-auto bg-ink-900 text-white rounded-2xl rounded-br-sm px-3 py-2 text-[12px] leading-snug">
+                Perfeito, me chamo Letícia e vou prosseguir com o seu atendimento!
               </div>
             </div>
           </BentoCard>
