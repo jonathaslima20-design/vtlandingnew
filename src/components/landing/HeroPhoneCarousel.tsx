@@ -119,7 +119,7 @@ function IPhone16ProMax({ src, alt, eager }: { src: string; alt: string; eager: 
             {/* ── Screen content ── */}
             <div
               className="absolute left-0 right-0 overflow-hidden"
-              style={{ top: '12.5%', bottom: '11.5%', zIndex: 10 }}
+              style={{ top: '12.5%', bottom: '9%', zIndex: 10 }}
             >
               <img
                 src={src}
@@ -136,37 +136,41 @@ function IPhone16ProMax({ src, alt, eager }: { src: string; alt: string; eager: 
               aria-hidden
               className="absolute left-0 right-0 pointer-events-none"
               style={{
-                bottom: '3.8%',
+                bottom: '1%',
                 height: '8%',
                 background: '#f2f2f7',
                 borderTop: '0.5px solid #c8c8cc',
                 zIndex: 18,
                 display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'space-around',
-                padding: '0 3%',
+                flexDirection: 'column',
+                alignItems: 'stretch',
               }}
             >
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#555" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <polyline points="15 18 9 12 15 6" />
-              </svg>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#ccc" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <polyline points="9 18 15 12 9 6" />
-              </svg>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#555" strokeWidth="2" strokeLinecap="round">
-                <circle cx="12" cy="12" r="10" />
-                <line x1="12" y1="8" x2="12" y2="16" />
-                <line x1="8" y1="12" x2="16" y2="12" />
-              </svg>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#555" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                <rect x="3" y="7" width="14" height="14" rx="2" />
-                <path d="M7 7V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-2" />
-              </svg>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="#555">
-                <circle cx="5" cy="12" r="1.5" />
-                <circle cx="12" cy="12" r="1.5" />
-                <circle cx="19" cy="12" r="1.5" />
-              </svg>
+              <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'space-around', padding: '0 3%' }}>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#555" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="15 18 9 12 15 6" />
+                </svg>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#ccc" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="9 18 15 12 9 6" />
+                </svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#555" strokeWidth="2" strokeLinecap="round">
+                  <circle cx="12" cy="12" r="10" />
+                  <line x1="12" y1="8" x2="12" y2="16" />
+                  <line x1="8" y1="12" x2="16" y2="12" />
+                </svg>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#555" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="3" y="7" width="14" height="14" rx="2" />
+                  <path d="M7 7V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-2" />
+                </svg>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="#555">
+                  <circle cx="5" cy="12" r="1.5" />
+                  <circle cx="12" cy="12" r="1.5" />
+                  <circle cx="19" cy="12" r="1.5" />
+                </svg>
+              </div>
+              <div style={{ display: 'flex', justifyContent: 'center', paddingBottom: '8%' }}>
+                <div style={{ width: '28%', height: '3px', borderRadius: '9999px', background: 'rgba(0,0,0,0.28)' }} />
+              </div>
             </div>
 
             {/* Dynamic Island */}
@@ -197,19 +201,6 @@ function IPhone16ProMax({ src, alt, eager }: { src: string; alt: string; eager: 
                 }}
               />
             </div>
-
-            {/* Home indicator */}
-            <div
-              aria-hidden
-              className="absolute left-1/2 -translate-x-1/2 rounded-full pointer-events-none"
-              style={{
-                bottom: '1%',
-                width: '30%',
-                height: '0.55%',
-                background: 'rgba(0,0,0,0.32)',
-                zIndex: 25,
-              }}
-            />
 
             {/* Screen glare */}
             <div
