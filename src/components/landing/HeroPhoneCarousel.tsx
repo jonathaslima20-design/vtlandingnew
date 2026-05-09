@@ -26,7 +26,7 @@ function IPhone16ProMax({ src, alt, eager }: { src: string; alt: string; eager: 
           borderRadius: '13.5% / 6.2%',
           background:
             'linear-gradient(145deg, #c8b99a 0%, #a89070 12%, #7a6850 28%, #5a4c38 48%, #6a5a44 62%, #908070 80%, #c0a882 100%)',
-          padding: '1%',
+          padding: '2.5%',
         }}
       >
         {/* Titanium frame glare */}
@@ -44,16 +44,16 @@ function IPhone16ProMax({ src, alt, eager }: { src: string; alt: string; eager: 
         <div
           className="relative w-full h-full overflow-hidden"
           style={{
-            borderRadius: '12.5% / 5.8%',
-            background: 'linear-gradient(170deg, #1c1c1e 0%, #0a0a0c 55%, #1a1a1c 100%)',
-            padding: '1.2%',
+            borderRadius: '10% / 5%',
+            background: '#0a0a0c',
+            padding: '1.8%',
           }}
         >
           {/* Screen glass */}
           <div
             className="relative w-full h-full overflow-hidden bg-white"
             style={{
-              borderRadius: '11.5% / 5.3%',
+              borderRadius: '7.5% / 3.6%',
               boxShadow: 'inset 0 0 0 1px rgba(255,255,255,0.06), inset 0 0 28px rgba(0,0,0,0.85)',
             }}
           >
