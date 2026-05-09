@@ -212,11 +212,12 @@ function BentoGrid() {
             </div>
           </BentoCard>
 
-          <BentoCard idx="03" title="Indique e Ganhe Comissão" Icon={Gift}>
+          <BentoCard idx="03" title="Indique e ganhe" Icon={Gift}>
             <div className="flex items-end justify-between">
               <div>
-                <div className="font-display font-semibold text-[48px] leading-none tracking-[-0.03em] text-ink-900">15%</div>
-                <div className="font-mono-label uppercase text-[10px] text-ink-400 mt-2">por indicação</div>
+                <div className="font-mono-label uppercase text-[10px] text-ink-400 mb-1">Ganhe até</div>
+                <div className="font-display font-semibold text-[44px] leading-none tracking-[-0.03em] text-ink-900">R$ <span className="text-[52px]">100</span><span className="text-[28px]">,00</span></div>
+                <div className="font-mono-label uppercase text-[10px] text-ink-400 mt-2">por usuário indicado</div>
               </div>
               <div className="flex -space-x-2">
                 {[0, 1, 2].map((i) => (
