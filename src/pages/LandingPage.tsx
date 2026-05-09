@@ -480,16 +480,16 @@ function FaqSection() {
       a: 'Não. Você pode criar sua vitrine e explorar a plataforma sem nenhum compromisso inicial.',
     },
     {
-      q: 'Posso usar meu próprio domínio?',
-      a: 'Sim. Conecte seu domínio personalizado em poucos cliques, com SSL incluído em todos os planos.',
-    },
-    {
       q: 'Existe taxa sobre as vendas?',
       a: 'Não cobramos nenhuma comissão sobre suas vendas. Você paga apenas o plano escolhido.',
     },
     {
-      q: 'Como funciona a integração com o WhatsApp?',
-      a: 'Cada produto gera um link direto para conversa no WhatsApp com a mensagem pronta do cliente.',
+      q: 'Funciona para qualquer nicho?',
+      a: 'Sim. Moda, calçados, cosméticos, alimentos, serviços, decoração... A plataforma é flexível e se adapta ao seu negócio.',
+    },
+    {
+      q: 'Como funciona o Indique e Ganhe?',
+      a: 'Cada usuário recebe um link de indicação. Quando alguém assina por meio dele, você ganha comissão e crédito direto na conta.',
     },
     {
       q: 'Posso cancelar a qualquer momento?',
